@@ -1,6 +1,6 @@
 import 'package:car_rental_app/config/change_notifier/onboarding_change.dart';
 import 'package:car_rental_app/config/constants/model_onboarding.dart';
-import 'package:car_rental_app/features/onboarding/widget/image_ane_text.dart';
+import 'package:car_rental_app/features/onboarding/widget/image_and_text.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
