@@ -24,4 +24,41 @@ class TextStyles {
     fontSize: 14.4,
     fontWeight: FontWeightHelper.regular,
   );
+  static TextStyle font24BlackSemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: AppColors.black,
+    fontSize: 24.0,
+    height: 1.2,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font14GrayRegular = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: AppColors.gray,
+    fontSize: 14.0,
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font14OnyxRegular = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: AppColors.onyx,
+    fontSize: 14.0,
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font18BlackBold = TextStyle(
+    // fontFamily: AppStrings.roboto,
+    color: AppColors.black,
+    fontSize: 18.0,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font16GrayRegular = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: AppColors.gray,
+    fontSize: 16.0,
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font16OnyxRegular = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: AppColors.onyx,
+    fontSize: 16.0,
+    fontWeight: FontWeightHelper.regular,
+  );
 }
