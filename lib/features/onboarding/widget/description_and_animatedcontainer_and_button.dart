@@ -32,6 +32,11 @@ class DescriptionAndAnimatedcontainerAndButton extends StatelessWidget {
         verticalSpacing(context.screenHeight / 20),
 
         AppButton(
+          title: Text(
+              textAlign:  TextAlign.center,
+            "Get Started",
+            style:  TextStyles.font18WhiteBold,
+          ),
           onTap: () {
             OnboardingChange.instance.onTapOnButton(context: context);
           },
