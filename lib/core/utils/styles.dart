@@ -7,58 +7,70 @@ class TextStyles {
   TextStyles._();
   static TextStyle font30WhiteSemiBold = TextStyle(
     fontFamily: AppStrings.roboto,
-    color: AppColors.white,
+    color: ColorsManager.white,
     fontSize: 30,
     fontWeight: FontWeightHelper.semiBold,
     height: 1.2,
   );
   static TextStyle font18WhiteBold = TextStyle(
     fontFamily: AppStrings.roboto,
-    color: AppColors.white,
+    color: ColorsManager.white,
     fontSize: 18,
     fontWeight: FontWeightHelper.bold,
   );
   static TextStyle font14WhiteRegular = TextStyle(
     fontFamily: AppStrings.roboto,
-    color: AppColors.white,
+    color: ColorsManager.white,
     fontSize: 14.4,
     fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font24BlackSemiBold = TextStyle(
     fontFamily: AppStrings.roboto,
-    color: AppColors.black,
+    color: ColorsManager.black,
     fontSize: 24.0,
     height: 1.2,
     fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font14GrayRegular = TextStyle(
     fontFamily: AppStrings.roboto,
-    color: AppColors.gray,
+    color: ColorsManager.gray,
     fontSize: 14.0,
     fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font14OnyxRegular = TextStyle(
     fontFamily: AppStrings.roboto,
-    color: AppColors.onyx,
+    color: ColorsManager.onyx,
     fontSize: 14.0,
     fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font18BlackBold = TextStyle(
     // fontFamily: AppStrings.roboto,
-    color: AppColors.black,
+    color: ColorsManager.black,
     fontSize: 18.0,
     fontWeight: FontWeightHelper.bold,
   );
   static TextStyle font16GrayRegular = TextStyle(
     fontFamily: AppStrings.roboto,
-    color: AppColors.gray,
+    color: ColorsManager.gray,
     fontSize: 16.0,
     fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font16OnyxRegular = TextStyle(
     fontFamily: AppStrings.roboto,
-    color: AppColors.onyx,
+    color: ColorsManager.onyx,
     fontSize: 16.0,
     fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font30BlackSemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 30.0,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font14BlackSemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 14.0,
+    fontWeight: FontWeightHelper.semiBold,
   );
 }
