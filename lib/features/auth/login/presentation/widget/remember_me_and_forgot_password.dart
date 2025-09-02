@@ -12,7 +12,7 @@ class RememberMeAndForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   SizedBox(
+    return SizedBox(
       height: context.bodyHeight * 0.1,
       child: Padding(
         padding: EdgeInsets.only(
@@ -28,7 +28,7 @@ class RememberMeAndForgotPassword extends StatelessWidget {
                   width: context.screenWidth * 0.042,
                   height: context.screenHeight * 0.021,
                   decoration: BoxDecoration(
-                    color: AppColors.onyx,
+                    color: ColorsManager.onyx,
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: Center(
