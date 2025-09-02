@@ -18,16 +18,16 @@ class AppTextFormField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           // gapPadding: 4.0,
-          borderSide: BorderSide(color: AppColors.lightGray),
+          borderSide: BorderSide(color: ColorsManager.lightGray),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: AppColors.lightGray),
+          borderSide: BorderSide(color: ColorsManager.lightGray),
         ),
         hintText: hintText ?? "Email/Phone Number",
         hintStyle: TextStyles.font14GrayRegular,
         filled: true,
-        fillColor: AppColors.white,
+        fillColor: ColorsManager.white,
       ),
     );
   }

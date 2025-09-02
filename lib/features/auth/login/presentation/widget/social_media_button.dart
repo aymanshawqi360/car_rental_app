@@ -11,34 +11,36 @@ class SocialMediaButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   SizedBox(
+    return SizedBox(
       // height: context.bodyHeight*0.00,
       child: Column(
         children: [
-          AppButton(onTap: (){},
-            height: context.screenHeight/19,
-            color: AppColors.platinumGray,
-            border: BoxBorder.all(color: AppColors.black,width: 0.1),
+          AppButton(
+            onTap: () {},
+            height: context.screenHeight / 19,
+            color: ColorsManager.platinumGray,
+            border: BoxBorder.all(color: ColorsManager.black, width: 0.1),
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(AssetsManager.appleIcon),
-                horizontalSpacing(context.screenWidth/35),
-                Text('Apple pay')
+                horizontalSpacing(context.screenWidth / 35),
+                Text('Apple pay'),
               ],
             ),
           ),
-          verticalSpacing(context.screenHeight/50),
-          AppButton(onTap: (){},
-            height: context.screenHeight/19,
-            color: AppColors.platinumGray,
-            border: BoxBorder.all(color: AppColors.black,width: 0.1),
+          verticalSpacing(context.screenHeight / 50),
+          AppButton(
+            onTap: () {},
+            height: context.screenHeight / 19,
+            color: ColorsManager.platinumGray,
+            border: BoxBorder.all(color: ColorsManager.black, width: 0.1),
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(AssetsManager.googleIcon),
-                horizontalSpacing(context.screenWidth/35),
-                Text('Google Pay')
+                horizontalSpacing(context.screenWidth / 35),
+                Text('Google Pay'),
               ],
             ),
           ),
