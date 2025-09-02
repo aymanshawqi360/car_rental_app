@@ -6,7 +6,7 @@ import 'package:car_rental_app/core/utils/spacing.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_text_form_field.dart';
 import 'package:car_rental_app/core/widgets/app_divider_and_or.dart';
-import 'package:car_rental_app/features/auth/login/presentation/widget/login_and_sign_up_button.dart';
+import 'package:car_rental_app/features/auth/login/presentation/widget/login_and_sing_up_button.dart';
 import 'package:car_rental_app/features/auth/login/presentation/widget/remember_me_and_forgot_password.dart';
 import 'package:car_rental_app/features/auth/login/presentation/widget/rich_text.dart';
 import 'package:car_rental_app/features/auth/login/presentation/widget/social_media_button.dart';
@@ -67,7 +67,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             RememberMeAndForgotPassword(),
-            LoginAndSignUpButton(),
+            LoginAndSingUpButtonLogin(),
             AppDividerAndOr(),
             verticalSpacing(context.bodyHeight * 0.02),
             SocialMediaButton(),
