@@ -1,7 +1,7 @@
 import 'package:car_rental_app/core/utils/hex_color.dart';
 import 'package:flutter/material.dart';
 
-class AppColors {
+class ColorsManager {
   static Color white = HexColor(hexColor: 'FFFFFF');
   static Color black = HexColor(hexColor: '000000');
   static Color lightGray = HexColor(hexColor: 'D7D7D7');
