@@ -41,11 +41,13 @@ class AppButton extends StatelessWidget {
           borderRadius: borderRadius ?? BorderRadius.circular(62),
           border: border ?? BoxBorder.all(color: Colors.transparent),
         ),
-        child:title ?? Text(
-       //   textAlign: textAlign ?? TextAlign.center,
-           "Get Started",
-          // style: style ?? TextStyles.font18WhiteBold,
-        ),
+        child:
+            title ??
+            Text(
+              //   textAlign: textAlign ?? TextAlign.center,
+              "Get Started",
+              // style: style ?? TextStyles.font18WhiteBold,
+            ),
       ),
     );
   }
