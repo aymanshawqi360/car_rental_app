@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AppbarWidget extends StatelessWidget {
-  const AppbarWidget({super.key});
+  final double? height;
+  const AppbarWidget({super.key, this.height});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-     height: context.bodyHeight * 0.15,
+      height: height ?? context.bodyHeight * 0.15,
       child: Row(
         children: [
           SvgPicture.asset(

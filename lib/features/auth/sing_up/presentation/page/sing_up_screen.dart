@@ -8,9 +8,9 @@ import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_button.dart';
 import 'package:car_rental_app/core/widgets/app_divider_and_or.dart';
 import 'package:car_rental_app/core/widgets/dont_have_an_account.dart';
-import 'package:car_rental_app/features/auth/sing_up/presentation/widget/appbar_widget.dart';
-import 'package:car_rental_app/features/auth/sing_up/presentation/widget/sign_up_form.dart';
-import 'package:car_rental_app/features/auth/sing_up/presentation/widget/social_media_button.dart';
+import 'package:car_rental_app/core/widgets/appbar_widget.dart';
+import 'package:car_rental_app/features/auth/sing_up/presentation/widget/sing_up_form.dart';
+import 'package:car_rental_app/features/auth/sing_up/presentation/widget/social_media_button_sing_up.dart';
 import 'package:flutter/material.dart';
 
 class SingUpScreen extends StatelessWidget {
@@ -19,7 +19,6 @@ class SingUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor(hexColor: 'f8f8f8'),
       drawerEnableOpenDragGesture: false,
       body: Padding(
         padding: EdgeInsetsGeometry.only(
@@ -88,6 +87,12 @@ class SingUpScreen extends StatelessWidget {
                   SizedBox(
                     height: context.bodyHeight * 0.1,
                     child: DontHaveAnAccount(
+                      onTap: () {
+                        context.pushNamedAndRemoveUntil(
+                          Routes.login,
+                          predicate: (_) => false,
+                        );
+                      },
                       fristText: AppStrings.dontHaveAnAccountLogin,
                       lateText: AppStrings.login,
                     ),

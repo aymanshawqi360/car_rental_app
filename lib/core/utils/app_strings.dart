@@ -17,4 +17,11 @@ class AppStrings {
   static const String password = "Password";
   static const String googlePay = "Google Pay";
   static const String applePay = "Apple Pay";
+  static const String returnToSingIn = "Return to sing in";
+  static const String resetYourPassword = "Reset your password";
+  static const String email = "Email";
+  static const String createA = "Create a";
+  static const String newAccount = "New account";
+  static const String specialDescriptionInThePassword =
+      "Enter the email address associated with your account and\nwe'll send you a link to reset your password.";
 }
