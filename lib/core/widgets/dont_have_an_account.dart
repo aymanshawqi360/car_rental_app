@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 class DontHaveAnAccount extends StatelessWidget {
   final String fristText;
   final String lateText;
+  final void Function()? onTap;
   const DontHaveAnAccount({
     super.key,
     required this.fristText,
     required this.lateText,
+    this.onTap,
   });
 
   @override
@@ -20,13 +22,7 @@ class DontHaveAnAccount extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  context.pushNamedAndRemoveUntil(
-                    Routes.login,
-                    predicate: (_) => false,
-                  );
-                },
+              recognizer: TapGestureRecognizer()..onTap = onTap,
               style: TextStyles.font16OnyxRegular,
               text: lateText,
             ),
