@@ -6,7 +6,7 @@ import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_button.dart';
 import 'package:car_rental_app/core/widgets/app_text_form_field.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/widget/creat_a_new_account.dart';
-import 'package:car_rental_app/features/auth/reset_password/presentation/widget/reset_password%20_and_description.dart';
+import 'package:car_rental_app/features/auth/reset_password/presentation/widget/reset_password_and_description.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
