@@ -1,3 +1,4 @@
+import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/app_colors.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/assets_manager.dart';
@@ -48,9 +49,17 @@ class RememberMeAndForgotPassword extends StatelessWidget {
                 ),
               ],
             ),
-            Text(
-              AppStrings.forgotPassword,
-              style: TextStyles.font14OnyxRegular,
+            GestureDetector(
+              onTap: () {
+                context.pushNamedAndRemoveUntil(
+                  Routes.resetPassword,
+                  predicate: (_) => false,
+                );
+              },
+              child: Text(
+                AppStrings.forgotPassword,
+                style: TextStyles.font14OnyxRegular,
+              ),
             ),
           ],
         ),
