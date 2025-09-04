@@ -22,6 +22,12 @@ class AppStrings {
   static const String email = "Email";
   static const String createA = "Create a";
   static const String newAccount = "New account";
+  static const String country = "Country";
+  static const String continueButton = "Continue";
+  static const String phoneNumber = "Phone Number";
+  static const String verifyYourPhoneNumber = "Verify your phone number";
+  static const String weHaveSentYouAnSmsWithACodeToNumber =
+      "We have sent you an SMS with a code to number";
   static const String specialDescriptionInThePassword =
       "Enter the email address associated with your account and\nwe'll send you a link to reset your password.";
 }
