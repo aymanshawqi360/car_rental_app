@@ -47,7 +47,12 @@ class SingUpScreen extends StatelessWidget {
                     children: [
                       AppButton(
                         height: context.screenHeight / 16,
-                        onTap: () {},
+                        onTap: () {
+                          context.pushNamedAndRemoveUntil(
+                            Routes.verifyYourPhoneNumber,
+                            predicate: (_) => false,
+                          );
+                        },
                         title: Text(
                           AppStrings.signUp,
                           style: TextStyles.font18WhiteBold,
