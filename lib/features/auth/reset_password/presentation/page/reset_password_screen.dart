@@ -4,9 +4,9 @@ import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_button.dart';
+import 'package:car_rental_app/core/widgets/app_description_title.dart';
 import 'package:car_rental_app/core/widgets/app_text_form_field.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/widget/creat_a_new_account.dart';
-import 'package:car_rental_app/features/auth/reset_password/presentation/widget/reset_password_and_description.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -37,7 +37,12 @@ class ResetPasswordScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  ResetPasswordDescription(),
+                  AppDescriptionTitle(
+                    fristText: AppStrings.resetYourPassword,
+                    fristTextStyle: TextStyles.font30BlackSemiBold,
+                    lastText: AppStrings.specialDescriptionInThePassword,
+                    lastTextStyle: TextStyles.font12GrayRegular,
+                  ),
                   verticalSpacing(context.screenHeight * 0.04),
                   AppTextFormField(hintText: AppStrings.email),
                   verticalSpacing(context.screenHeight * 0.04),

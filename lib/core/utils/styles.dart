@@ -73,11 +73,23 @@ class TextStyles {
     fontSize: 14.0,
     fontWeight: FontWeightHelper.semiBold,
   );
-  static TextStyle font13GrayRegular = TextStyle(
+  static TextStyle font12GrayRegular = TextStyle(
     fontFamily: AppStrings.roboto,
     color: ColorsManager.gray,
     fontSize: 12.4,
     fontWeight: FontWeightHelper.regular,
     height: 1.5,
+  );
+  static TextStyle font14LightGrayRegular = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.gray,
+    fontSize: 14.0,
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font28BlackSemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 28.6,
+    fontWeight: FontWeightHelper.semiBold,
   );
 }

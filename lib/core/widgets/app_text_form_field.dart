@@ -5,23 +5,32 @@ import 'package:flutter/material.dart';
 
 class AppTextFormField extends StatelessWidget {
   final String? hintText;
-  const AppTextFormField({super.key, this.hintText});
+  final double? vertical;
+  final double? horizontal;
+  final BorderRadius? borderRadius;
+  const AppTextFormField({
+    super.key,
+    this.hintText,
+    this.vertical,
+    this.horizontal,
+    this.borderRadius,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: context.screenHeight * 0.014,
+          horizontal: horizontal ?? context.screenWidth / 20,
+          vertical: vertical ?? context.screenHeight / 60,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: borderRadius ?? BorderRadius.circular(8),
           // gapPadding: 4.0,
           borderSide: BorderSide(color: ColorsManager.lightGray),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: borderRadius ?? BorderRadius.circular(8),
           borderSide: BorderSide(color: ColorsManager.lightGray),
         ),
         hintText: hintText ?? "Email/Phone Number",
