@@ -3,7 +3,7 @@ import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_appbar.dart';
-import 'package:car_rental_app/core/widgets/app_description_title%20.dart';
+import 'package:car_rental_app/core/widgets/app_description_title.dart';
 import 'package:car_rental_app/core/widgets/app_text_form_field.dart';
 import 'package:car_rental_app/features/auth/verify_your_phone_number/presentation/widget/continue_button.dart';
 import 'package:car_rental_app/features/auth/verify_your_phone_number/presentation/widget/country_dropdown.dart';
