@@ -1,3 +1,4 @@
+import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
@@ -10,7 +11,12 @@ class ContinueButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      onTap: () {},
+      onTap: () {
+        context.pushNamedAndRemoveUntil(
+          Routes.verificationCodeScreen,
+          predicate: (_) => false,
+        );
+      },
       height: context.screenHeight / 15.5,
 
       title: Text(AppStrings.continueButton, style: TextStyles.font18WhiteBold),
