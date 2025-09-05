@@ -5,4 +5,5 @@ class Routes {
   static const String signUp = "/signUp";
   static const String resetPassword = "/resetPassword";
   static const String verifyYourPhoneNumber = "/verifyYourPhoneNumber";
+  static const String verificationCodeScreen = "/verificationCodeScreen";
 }
