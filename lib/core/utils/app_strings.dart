@@ -25,7 +25,12 @@ class AppStrings {
   static const String country = "Country";
   static const String continueButton = "Continue";
   static const String phoneNumber = "Phone Number";
+  static const String didntReceiveTheOtp = "Didn’t receive the OTP?";
+  static const String resend = "\tResend.";
   static const String verifyYourPhoneNumber = "Verify your phone number";
+  static const String enterVerificationCode = "Enter verification code";
+  static const String weHaveSendACodeTo =
+      "We have send a Code to : +100******00";
   static const String weHaveSentYouAnSmsWithACodeToNumber =
       "We have sent you an SMS with a code to number";
   static const String specialDescriptionInThePassword =
