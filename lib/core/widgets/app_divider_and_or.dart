@@ -8,22 +8,19 @@ class AppDividerAndOr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // height: context.bodyHeight/0.1,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            width: context.screenWidth * 0.4,
-            child: Divider(color: ColorsManager.lightGray),
-          ),
-          Text("Or", style: TextStyles.font14GrayRegular),
-          SizedBox(
-            width: context.screenWidth * 0.4,
-            child: Divider(color: ColorsManager.lightGray),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+          width: context.screenWidth * 0.4,
+          child: Divider(color: ColorsManager.lightGray),
+        ),
+        Text("Or", style: TextStyles.font14GrayRegular),
+        SizedBox(
+          width: context.screenWidth * 0.4,
+          child: Divider(color: ColorsManager.lightGray),
+        ),
+      ],
     );
   }
 }
