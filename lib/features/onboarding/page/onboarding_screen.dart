@@ -14,7 +14,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   late PageController controller;
   @override
   void initState() {
-    controller = OnboardingChange().controller;
+    controller = OnboardingChange.instance.controller;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (controller.hasClients) {
         controller.jumpToPage(0);
