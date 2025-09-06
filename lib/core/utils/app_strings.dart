@@ -21,7 +21,7 @@ class AppStrings {
   static const String resetYourPassword = "Reset your password";
   static const String email = "Email";
   static const String createA = "Create a";
-  static const String newAccount = "New account";
+  static const String newAccount = "\tNew account";
   static const String country = "Country";
   static const String continueButton = "Continue";
   static const String phoneNumber = "Phone Number";
