@@ -1,3 +1,4 @@
+import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/utils/app_colors.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/assets_manager.dart';
@@ -17,7 +18,7 @@ class SocialMediaButtonSigbUp extends StatelessWidget {
       children: [
         AppButton(
           onTap: () {},
-          height: context.screenHeight / 19,
+          height: SizeConfig.heightButtonSocialMedia,
           color: ColorsManager.platinumGray,
           border: BoxBorder.all(color: ColorsManager.black, width: 0.1),
           title: Row(
@@ -32,7 +33,7 @@ class SocialMediaButtonSigbUp extends StatelessWidget {
         verticalSpacing(context.screenHeight / 50),
         AppButton(
           onTap: () {},
-          height: context.screenHeight / 19,
+          height: SizeConfig.heightButtonSocialMedia,
           color: ColorsManager.platinumGray,
           border: BoxBorder.all(color: ColorsManager.black, width: 0.1),
           title: Row(
