@@ -39,11 +39,7 @@ class SingUpScreen extends StatelessWidget {
                       style: TextStyles.font30BlackSemiBold,
                     ),
                   ),
-                  SizedBox(
-                    height: context.screenHeight * 0.32,
-                    child: SingUpForm(),
-                  ),
-
+                  SingUpForm(),
                   verticalSpacing(context.bodyHeight * 0.04),
                   Column(
                     children: [
