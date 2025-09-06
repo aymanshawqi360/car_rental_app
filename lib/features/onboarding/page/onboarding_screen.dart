@@ -11,16 +11,21 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  late PageController? controller;
+  late PageController controller;
   @override
   void initState() {
-    controller = OnboardingChange.instance.controller;
+    controller = OnboardingChange().controller;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (controller.hasClients) {
+        controller.jumpToPage(0);
+      }
+    });
     super.initState();
   }
 
   @override
   void dispose() {
-    controller?.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -28,11 +33,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListenableBuilder(
-        listenable: OnboardingChange.instance,
+        listenable: OnboardingChange(),
         builder: (context, child) {
           return PageView(
             onPageChanged: (value) {
-              OnboardingChange.instance.userScroll(value);
+              OnboardingChange().userScroll(value);
             },
             controller: controller,
             children: List.generate(ModelOnboarding.onboardings.length, (
