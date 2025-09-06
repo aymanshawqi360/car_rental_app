@@ -1,3 +1,4 @@
+import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
@@ -17,8 +18,7 @@ class ContinueButton extends StatelessWidget {
           predicate: (_) => false,
         );
       },
-      height: context.screenHeight / 15.5,
-
+      height: SizeConfig.heightButton,
       title: Text(AppStrings.continueButton, style: TextStyles.font18WhiteBold),
     );
   }
