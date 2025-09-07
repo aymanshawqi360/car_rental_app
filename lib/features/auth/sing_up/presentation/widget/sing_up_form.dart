@@ -1,7 +1,8 @@
-import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
+import 'package:car_rental_app/core/widgets/app_country_dropdown.dart';
 import 'package:car_rental_app/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SingUpForm extends StatelessWidget {
   const SingUpForm({super.key});
@@ -11,12 +12,12 @@ class SingUpForm extends StatelessWidget {
     return Column(
       children: [
         AppTextFormField(hintText: "Full Name"),
-        verticalSpacing(context.screenHeight * 0.02),
+        verticalSpacing(15.h),
         AppTextFormField(hintText: "Email Address"),
-        verticalSpacing(context.screenHeight * 0.02),
+        verticalSpacing(15.h),
         AppTextFormField(hintText: "Password"),
-        verticalSpacing(context.screenHeight * 0.02),
-        AppTextFormField(hintText: "Country"),
+        verticalSpacing(15.h),
+        AppCountryDropdown(),
       ],
     );
   }

@@ -1,3 +1,4 @@
+import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/assets_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
@@ -47,6 +48,7 @@ class ResetPasswordScreen extends StatelessWidget {
                   AppTextFormField(hintText: AppStrings.email),
                   verticalSpacing(context.screenHeight * 0.04),
                   AppButton(
+                    height: SizeConfig.heightButton,
                     onTap: () {},
 
                     title: Text("Continue", style: TextStyles.font18WhiteBold),

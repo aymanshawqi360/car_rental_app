@@ -5,6 +5,7 @@ import 'package:car_rental_app/features/auth/sing_up/presentation/page/sing_up_s
 import 'package:car_rental_app/features/auth/verification_code/presentation/page/verification_code_screen.dart';
 import 'package:car_rental_app/features/auth/verify_your_phone_number/presentation/page/verify_your_phone_number_screen.dart';
 import 'package:car_rental_app/features/onboarding/page/onboarding_screen.dart';
+import 'package:car_rental_app/features/splach/presentation/page/splach_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouting {
@@ -68,6 +69,8 @@ class AppRouting {
             return FadeTransition(opacity: animation, child: child);
           },
         );
+      case Routes.splash:
+        return MaterialPageRoute(builder: (_) => SplachScreen());
 
       default:
         return defaultPage();

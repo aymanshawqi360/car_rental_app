@@ -1,3 +1,4 @@
+import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
@@ -33,6 +34,7 @@ class VerificationCodeScreen extends StatelessWidget {
             VerificationCodeField(),
             verticalSpacing(context.screenHeight * 0.02),
             AppButton(
+              height: SizeConfig.heightButton,
               title: Text(
                 AppStrings.continueButton,
                 style: TextStyles.font18WhiteBold,

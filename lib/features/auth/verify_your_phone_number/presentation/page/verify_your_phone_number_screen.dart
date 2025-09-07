@@ -3,10 +3,10 @@ import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_appbar.dart';
+import 'package:car_rental_app/core/widgets/app_country_dropdown.dart';
 import 'package:car_rental_app/core/widgets/app_description_title.dart';
 import 'package:car_rental_app/core/widgets/app_text_form_field.dart';
 import 'package:car_rental_app/features/auth/verify_your_phone_number/presentation/widget/continue_button.dart';
-import 'package:car_rental_app/features/auth/verify_your_phone_number/presentation/widget/country_dropdown.dart';
 import 'package:flutter/material.dart';
 
 class VerifyYourPhoneNumberScreen extends StatelessWidget {
@@ -31,12 +31,9 @@ class VerifyYourPhoneNumberScreen extends StatelessWidget {
               lastText: AppStrings.weHaveSentYouAnSmsWithACodeToNumber,
             ),
             verticalSpacing(context.screenHeight * 0.03),
-            CountryDropdown(),
+            AppCountryDropdown(),
             verticalSpacing(context.screenHeight * 0.02),
-            AppTextFormField(
-              hintText: AppStrings.phoneNumber,
-              vertical: context.screenHeight * 0.0167,
-            ),
+            AppTextFormField(hintText: AppStrings.phoneNumber),
             verticalSpacing(context.screenHeight * 0.03),
             ContinueButton(),
           ],

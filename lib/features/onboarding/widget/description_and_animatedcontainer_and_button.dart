@@ -1,5 +1,6 @@
 import 'package:car_rental_app/config/change_notifier/onboarding_change.dart';
 import 'package:car_rental_app/config/constants/model_onboarding.dart';
+import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/hex_color.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
@@ -32,10 +33,11 @@ class DescriptionAndAnimatedcontainerAndButton extends StatelessWidget {
         verticalSpacing(context.screenHeight / 20),
 
         AppButton(
+          height: SizeConfig.heightButton,
           title: Text(
-              textAlign:  TextAlign.center,
+            textAlign: TextAlign.center,
             "Get Started",
-            style:  TextStyles.font18WhiteBold,
+            style: TextStyles.font18WhiteBold,
           ),
           onTap: () {
             OnboardingChange.instance.onTapOnButton(context: context);
@@ -54,12 +56,12 @@ class DescriptionAndAnimatedcontainerAndButton extends StatelessWidget {
             curve: Curves.linear,
             margin: EdgeInsets.symmetric(horizontal: context.screenWidth / 50),
             duration: Duration(seconds: 1),
-            width: OnboardingChange.instance.value != i
+            width: OnboardingChange().value != i
                 ? context.screenWidth / 50
                 : context.screenWidth / 15,
             height: 8,
             decoration: BoxDecoration(
-              color: OnboardingChange.instance.value != i
+              color: OnboardingChange().value != i
                   ? HexColor(hexColor: 'D7D7D7')
                   : HexColor(hexColor: '9CA3AF'),
               borderRadius: BorderRadius.circular(6),
