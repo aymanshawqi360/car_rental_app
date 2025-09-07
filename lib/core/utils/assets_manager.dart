@@ -5,6 +5,7 @@ class AssetsManager {
   //!Images
   static const String onboardingPageOne = "${_images}onboarding_page_one.png";
   static const String onboardingPageTwo = "${_images}onboarding_page_two.jpg";
+  static const String splash = "${_images}splash.png";
   //!Svg
   static const String cartIcon = "${_svg}car_icon.svg";
   static const String qent = "${_svg}qent.svg";
