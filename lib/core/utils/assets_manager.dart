@@ -1,6 +1,7 @@
 class AssetsManager {
   static const String _images = "assets/images/";
   static const String _svg = "assets/svg/";
+  static const String _lottie = "assets/lottie/";
 
   //!Images
   static const String onboardingPageOne = "${_images}onboarding_page_one.png";
@@ -14,4 +15,6 @@ class AssetsManager {
   static const String googleIcon = "${_svg}google_icon.svg";
   static const String appleIcon = "${_svg}apple_icon.svg";
   static const String arrowDropDown = "${_svg}arrow_drop_down.svg";
+  //!lottie
+  static const String loading = "${_lottie}Loading.json";
 }

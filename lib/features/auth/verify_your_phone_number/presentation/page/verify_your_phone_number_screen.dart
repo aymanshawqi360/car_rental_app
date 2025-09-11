@@ -31,7 +31,7 @@ class VerifyYourPhoneNumberScreen extends StatelessWidget {
               lastText: AppStrings.weHaveSentYouAnSmsWithACodeToNumber,
             ),
             verticalSpacing(context.screenHeight * 0.03),
-            AppCountryDropdown(),
+            //  AppCountryDropdown(),
             verticalSpacing(context.screenHeight * 0.02),
             AppTextFormField(hintText: AppStrings.phoneNumber),
             verticalSpacing(context.screenHeight * 0.03),

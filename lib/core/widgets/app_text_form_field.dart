@@ -8,17 +8,47 @@ class AppTextFormField extends StatelessWidget {
   final double? vertical;
   final double? horizontal;
   final BorderRadius? borderRadius;
+  final TextEditingController? controller;
+  final BorderSide? borderSide;
+  final bool? filled;
+  final Color? fillColor;
+  final Function(String?)? validator;
+  final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
+  final Widget? suffixIcon;
+  final bool obscureText = false;
+  final Widget? prefixIcon;
+  final int? maxLength;
+  final TextInputType? keyboardType;
+  final String? errorText;
+  final OutlineInputBorder? error;
   const AppTextFormField({
     super.key,
     this.hintText,
     this.vertical,
     this.horizontal,
     this.borderRadius,
+    this.controller,
+    this.borderSide,
+    this.filled,
+    this.fillColor,
+    this.validator,
+    this.onChanged,
+    this.onFieldSubmitted,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.maxLength,
+    this.keyboardType,
+    this.errorText,
+    this.error,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: maxLength,
+      keyboardType: keyboardType,
+      controller: controller,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
           horizontal: horizontal ?? context.screenWidth / 20,
@@ -26,18 +56,40 @@ class AppTextFormField extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: borderRadius ?? BorderRadius.circular(8),
-          // gapPadding: 4.0,
-          borderSide: BorderSide(color: ColorsManager.lightGray),
+          borderSide: borderSide ?? BorderSide(color: ColorsManager.lightGray),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: borderRadius ?? BorderRadius.circular(8),
-          borderSide: BorderSide(color: ColorsManager.lightGray),
+          borderSide: borderSide ?? BorderSide(color: ColorsManager.lightGray),
         ),
+        errorBorder:
+            error ??
+            OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(8),
+            ),
+        focusedErrorBorder:
+            error ??
+            OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(8),
+            ),
         hintText: hintText ?? "Email/Phone Number",
         hintStyle: TextStyles.font14GrayRegular,
-        filled: true,
-        fillColor: ColorsManager.white,
+        filled: filled ?? true,
+        fillColor: fillColor ?? ColorsManager.white,
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+        errorText: errorText,
       ),
+      obscureText: obscureText,
+      cursorColor: ColorsManager.black,
+      cursorErrorColor: ColorsManager.black,
+      validator: (value) {
+        return validator!(value);
+      },
+      onChanged: onChanged,
+      onFieldSubmitted: onFieldSubmitted,
     );
   }
 }

@@ -16,15 +16,30 @@ dependencies:
 
 
   cupertino_icons: ^1.0.8
+
+  
   # An SVG rendering and widget library for Flutter, which allows painting
   flutter_svg: ^2.2.0
   # Package handles the pagination and search in DropDown 
-  high_q_paginated_drop_down: ^2.1.3
+  # high_q_paginated_drop_down: ^2.1.3
+  intl_phone_field:
+    path: 'intl_phone_field' 
   # help you to generate pin code fields. Can be useful for OTP for example.
   pin_code_fields: ^8.0.1
   # plugin for adapting screen and font size
   flutter_screenutil: ^5.9.3
-  
+  # Network
+  dio: ^5.9.0
+  pretty_dio_logger: ^1.4.0
+  mockito: ^5.5.1
+  build_runner: ^2.8.0
+  get_it: ^8.2.0
+  # State Management
+  flutter_bloc: ^9.1.1
+  # Dart package that helps to implement value based equality without needing to explicitly override == and hashCode.
+  equatable: ^2.0.7
+  # This package is a pure Dart implementation of a Lottie player.
+  lottie: ^3.3.0
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +58,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svg/
+    - assets/lottie/
     
     
 
