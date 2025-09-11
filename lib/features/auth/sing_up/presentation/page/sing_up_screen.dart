@@ -2,6 +2,7 @@ import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/app_colors.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
+import 'package:car_rental_app/core/utils/assets_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
@@ -9,9 +10,15 @@ import 'package:car_rental_app/core/widgets/app_appbar.dart';
 import 'package:car_rental_app/core/widgets/app_button.dart';
 import 'package:car_rental_app/core/widgets/app_divider_and_or.dart';
 import 'package:car_rental_app/core/widgets/dont_have_an_account.dart';
+import 'package:car_rental_app/features/auth/sing_up/presentation/cubit/singup_cubit.dart';
+import 'package:car_rental_app/features/auth/sing_up/presentation/cubit/singup_state.dart';
+import 'package:car_rental_app/features/auth/sing_up/presentation/widget/sing_up_bloc_listener.dart';
 import 'package:car_rental_app/features/auth/sing_up/presentation/widget/sing_up_form.dart';
 import 'package:car_rental_app/features/auth/sing_up/presentation/widget/social_media_button_sing_up.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 class SingUpScreen extends StatelessWidget {
   const SingUpScreen({super.key});
@@ -20,7 +27,7 @@ class SingUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppAppbar(),
-      drawerEnableOpenDragGesture: true,
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: EdgeInsetsGeometry.only(
           left: context.screenWidth * 0.03,
@@ -46,17 +53,33 @@ class SingUpScreen extends StatelessWidget {
                       AppButton(
                         height: SizeConfig.heightButton,
                         onTap: () {
-                          context.pushNamedAndRemoveUntil(
-                            Routes.verifyYourPhoneNumber,
-                            predicate: (_) => false,
-                          );
+                          validationThenDoSingUp(context: context);
                         },
-                        title: Text(
-                          AppStrings.signUp,
-                          style: TextStyles.font18WhiteBold,
+                        title: BlocBuilder<SingUpCubit, SingUpState>(
+                          builder: (context, state) {
+                            if (state is SingupLoading) {
+                              return Lottie.asset(
+                                AssetsManager.loading,
+                                height: 36.5.h,
+                                width: 36.5.w,
+                                delegates: LottieDelegates(
+                                  values: [
+                                    ValueDelegate.color(const [
+                                      '**',
+                                    ], value: ColorsManager.white),
+                                  ],
+                                ),
+                              );
+                            } else {
+                              return Text(
+                                AppStrings.signUp,
+                                style: TextStyles.font18WhiteBold,
+                              );
+                            }
+                          },
                         ),
                       ),
-                      verticalSpacing(context.screenHeight * 0.02),
+                      verticalSpacing(context.screenHeight * 0.03),
                       AppButton(
                         onTap: () {
                           context.pushNamedAndRemoveUntil(
@@ -94,6 +117,7 @@ class SingUpScreen extends StatelessWidget {
                       lateText: AppStrings.login,
                     ),
                   ),
+                  SingUpBlocListener(),
                 ],
               ),
             ),
@@ -101,5 +125,11 @@ class SingUpScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validationThenDoSingUp({required BuildContext context}) {
+    if (context.read<SingUpCubit>().keyFrom.currentState!.validate()) {
+      context.read<SingUpCubit>().singUp();
+    }
   }
 }
