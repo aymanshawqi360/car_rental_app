@@ -12,8 +12,8 @@ import 'package:car_rental_app/core/widgets/app_divider_and_or.dart';
 import 'package:car_rental_app/core/widgets/dont_have_an_account.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_cubit.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_state.dart';
-import 'package:car_rental_app/features/auth/sign_up/presentation/widget/sing_up_bloc_listener.dart';
-import 'package:car_rental_app/features/auth/sign_up/presentation/widget/sing_up_form.dart';
+import 'package:car_rental_app/features/auth/sign_up/presentation/widget/sign_up_bloc_listener.dart';
+import 'package:car_rental_app/features/auth/sign_up/presentation/widget/sign_up_form.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/widget/social_media_button_sing_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,7 +46,7 @@ class SignUpScreen extends StatelessWidget {
                       style: TextStyles.font30BlackSemiBold,
                     ),
                   ),
-                  SingUpForm(),
+                  SignUpForm(),
                   verticalSpacing(context.bodyHeight * 0.04),
                   Column(
                     children: [
@@ -117,7 +117,7 @@ class SignUpScreen extends StatelessWidget {
                       lateText: AppStrings.login,
                     ),
                   ),
-                  SingUpBlocListener(),
+                  SignUpBlocListener(),
                 ],
               ),
             ),
