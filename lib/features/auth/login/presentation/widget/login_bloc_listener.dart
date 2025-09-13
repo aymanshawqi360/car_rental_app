@@ -1,4 +1,5 @@
 import 'package:car_rental_app/core/error/show_error_message.dart';
+import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:car_rental_app/features/auth/login/presentation/cubit/login_state.dart';
@@ -19,7 +20,7 @@ class LoginBlocListener extends StatelessWidget {
         if (state is LoginLoading) {
           // buildStateLoading();
         } else if (state is LoginSuccess) {
-          // _buildStateSuccess(context: context);
+          //  _buildStateSuccess(context: context);
         } else if (state is LoginFailure) {
           _buildStateFailure(context: context, state: state);
         }
@@ -29,7 +30,10 @@ class LoginBlocListener extends StatelessWidget {
   }
 
   Future<dynamic> _buildStateSuccess({required BuildContext context}) {
-    return context.pushNamedAndRemoveUntil("Routes.", predicate: (_) => false);
+    return context.pushNamedAndRemoveUntil(
+      Routes.emailVerificationCode,
+      predicate: (_) => false,
+    );
   }
 
   _buildStateFailure({
