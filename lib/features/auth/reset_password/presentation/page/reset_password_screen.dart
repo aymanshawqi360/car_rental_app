@@ -1,13 +1,13 @@
-import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/assets_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
-import 'package:car_rental_app/core/widgets/app_button.dart';
 import 'package:car_rental_app/core/widgets/app_description_title.dart';
-import 'package:car_rental_app/core/widgets/app_text_form_field.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/widget/creat_a_new_account.dart';
+import 'package:car_rental_app/features/auth/reset_password/presentation/widget/reset_password_bloc_listener.dart';
+import 'package:car_rental_app/features/auth/reset_password/presentation/widget/reset_password_button.dart';
+import 'package:car_rental_app/features/auth/reset_password/presentation/widget/reset_password_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,6 +17,7 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Row(
           children: [
@@ -32,9 +33,10 @@ class ResetPasswordScreen extends StatelessWidget {
           right: context.screenWidth * 0.03,
         ),
         child: Column(
+          //mainAxisAlignment: MainAxisAlignment.end,
           children: [
             SizedBox(
-              height: (context.bodyHeight) * 0.65,
+              height: (context.bodyHeight) * 0.55,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -45,21 +47,17 @@ class ResetPasswordScreen extends StatelessWidget {
                     lastTextStyle: TextStyles.font12GrayRegular,
                   ),
                   verticalSpacing(context.screenHeight * 0.04),
-                  AppTextFormField(hintText: AppStrings.email),
+                  ResetPasswordForm(),
                   verticalSpacing(context.screenHeight * 0.04),
-                  AppButton(
-                    height: SizeConfig.heightButton,
-                    onTap: () {},
-
-                    title: Text("Continue", style: TextStyles.font18WhiteBold),
-                  ),
+                  ResetPasswordButton(),
                 ],
               ),
             ),
             SizedBox(
-              height: context.bodyHeight * 0.35,
+              height: context.bodyHeight * 0.45,
               child: CreatANewAccount(),
             ),
+            ResetPasswordBlocListener(),
           ],
         ),
       ),
