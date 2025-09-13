@@ -34,7 +34,7 @@ class DescriptionAndAnimatedcontainerAndButton extends StatelessWidget {
 
         AppButton(
           height: SizeConfig.heightButton,
-          title: Text(
+          widget: Text(
             textAlign: TextAlign.center,
             "Get Started",
             style: TextStyles.font18WhiteBold,
