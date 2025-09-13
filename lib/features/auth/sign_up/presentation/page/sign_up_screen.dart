@@ -55,7 +55,7 @@ class SignUpScreen extends StatelessWidget {
                         onTap: () {
                           validationThenDoSingUp(context: context);
                         },
-                        title: BlocBuilder<SignUpCubit, SingUpState>(
+                        widget: BlocBuilder<SignUpCubit, SingUpState>(
                           builder: (context, state) {
                             if (state is SingupLoading) {
                               return Lottie.asset(
@@ -93,7 +93,7 @@ class SignUpScreen extends StatelessWidget {
                           width: 1,
                           color: ColorsManager.black,
                         ),
-                        title: Text(
+                        widget: Text(
                           AppStrings.login,
                           style: TextStyles.font18BlackBold,
                         ),
