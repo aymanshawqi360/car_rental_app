@@ -27,7 +27,7 @@ class CountryItem extends StatelessWidget {
           barrierColor: Colors.transparent,
 
           builder: (contextt) => BlocProvider.value(
-            value: SingUpCubit.get(context),
+            value: SignUpCubit.get(context),
             child: Dialog(
               insetPadding: EdgeInsets.symmetric(
                 horizontal: context.screenWidth * 0.04,
@@ -62,7 +62,7 @@ class CountryItem extends StatelessWidget {
                             onTap: () {
                               log(countries[index].code);
                               log(countries[index].maxLength.toString());
-                              context.read<SingUpCubit>().add(
+                              context.read<SignUpCubit>().add(
                                 countryCode: countries[index].code,
                                 countryName: countries[index].name,
                                 maxLength: countries[index].maxLength,
@@ -102,7 +102,7 @@ class CountryItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              BlocBuilder<SingUpCubit, SingUpState>(
+              BlocBuilder<SignUpCubit, SingUpState>(
                 buildWhen: (previous, current) => current is SingUpString,
                 builder: (context, state) {
                   if (state is SingUpString) {
