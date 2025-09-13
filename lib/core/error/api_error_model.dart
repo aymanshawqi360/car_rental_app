@@ -19,8 +19,12 @@ class ApiErrorModel {
       return errorMessage ?? "Unknown error occurred";
     final message = StringBuffer();
     for (var data in errors!.entries) {
-      for (var d in data.value) {
-        message.writeln(d);
+      if (data.value is List) {
+        for (var d in data.value) {
+          message.writeln(d);
+        }
+      } else {
+        message.writeln(data.value);
       }
     }
     return message.toString();
