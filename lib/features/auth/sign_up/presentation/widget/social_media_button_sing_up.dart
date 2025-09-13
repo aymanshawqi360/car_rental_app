@@ -21,7 +21,7 @@ class SocialMediaButtonSigbUp extends StatelessWidget {
           height: SizeConfig.heightButtonSocialMedia,
           color: ColorsManager.platinumGray,
           border: BoxBorder.all(color: ColorsManager.black, width: 0.1),
-          title: Row(
+          widget: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(AssetsManager.appleIcon),
@@ -36,7 +36,7 @@ class SocialMediaButtonSigbUp extends StatelessWidget {
           height: SizeConfig.heightButtonSocialMedia,
           color: ColorsManager.platinumGray,
           border: BoxBorder.all(color: ColorsManager.black, width: 0.1),
-          title: Row(
+          widget: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(AssetsManager.googleIcon),
