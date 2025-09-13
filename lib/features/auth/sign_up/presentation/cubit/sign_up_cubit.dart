@@ -4,7 +4,7 @@ import 'package:car_rental_app/core/error/api_resulte.dart';
 import 'package:car_rental_app/features/auth/sign_up/data/models/sign_up_request_body.dart';
 import 'package:car_rental_app/features/auth/sign_up/data/models/sign_up_response.dart';
 import 'package:car_rental_app/features/auth/sign_up/domain/use_cases/sign_up_use_cases.dart';
-import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_state.dart';
+import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_state.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

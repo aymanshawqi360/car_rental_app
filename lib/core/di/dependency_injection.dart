@@ -8,7 +8,7 @@ import 'package:car_rental_app/features/auth/sign_up/data/api/api_sign_up_servic
 import 'package:car_rental_app/features/auth/sign_up/data/repo_impl/sign_up_repo_implementation.dart';
 import 'package:car_rental_app/features/auth/sign_up/domain/repo/sign_up_repo_domain.dart';
 import 'package:car_rental_app/features/auth/sign_up/domain/use_cases/sign_up_use_cases.dart';
-import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_cubit.dart';
+import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
