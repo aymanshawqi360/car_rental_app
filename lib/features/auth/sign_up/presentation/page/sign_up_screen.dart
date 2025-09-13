@@ -9,7 +9,7 @@ import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_appbar.dart';
 import 'package:car_rental_app/core/widgets/app_button.dart';
 import 'package:car_rental_app/core/widgets/app_divider_and_or.dart';
-import 'package:car_rental_app/core/widgets/dont_have_an_account.dart';
+import 'package:car_rental_app/core/widgets/app_dont_have_an_account.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_cubit.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_state.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/widget/sign_up_bloc_listener.dart';
@@ -55,7 +55,7 @@ class SignUpScreen extends StatelessWidget {
                         onTap: () {
                           validationThenDoSingUp(context: context);
                         },
-                        title: BlocBuilder<SingUpCubit, SingUpState>(
+                        title: BlocBuilder<SignUpCubit, SingUpState>(
                           builder: (context, state) {
                             if (state is SingupLoading) {
                               return Lottie.asset(
@@ -112,7 +112,7 @@ class SignUpScreen extends StatelessWidget {
 
                   SizedBox(
                     height: context.bodyHeight * 0.1,
-                    child: DontHaveAnAccount(
+                    child: AppDontHaveAnAccount(
                       fristText: AppStrings.dontHaveAnAccountLogin,
                       lateText: AppStrings.login,
                     ),
@@ -128,8 +128,8 @@ class SignUpScreen extends StatelessWidget {
   }
 
   void validationThenDoSingUp({required BuildContext context}) {
-    if (context.read<SingUpCubit>().keyFrom.currentState!.validate()) {
-      context.read<SingUpCubit>().singUp();
+    if (context.read<SignUpCubit>().keyFrom.currentState!.validate()) {
+      context.read<SignUpCubit>().singUp();
     }
   }
 }
