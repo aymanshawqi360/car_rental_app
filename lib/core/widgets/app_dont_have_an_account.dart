@@ -2,11 +2,11 @@ import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class DontHaveAnAccount extends StatelessWidget {
+class AppDontHaveAnAccount extends StatelessWidget {
   final String fristText;
   final String lateText;
   final void Function()? onTap;
-  const DontHaveAnAccount({
+  const AppDontHaveAnAccount({
     super.key,
     required this.fristText,
     required this.lateText,

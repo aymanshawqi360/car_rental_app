@@ -6,7 +6,7 @@ import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_appbar.dart';
 import 'package:car_rental_app/core/widgets/app_button.dart';
 import 'package:car_rental_app/core/widgets/app_description_title.dart';
-import 'package:car_rental_app/core/widgets/dont_have_an_account.dart';
+import 'package:car_rental_app/core/widgets/app_dont_have_an_account.dart';
 import 'package:car_rental_app/features/auth/verification_code/presentation/widget/verification_code_field.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +42,7 @@ class VerificationCodeScreen extends StatelessWidget {
               onTap: () {},
             ),
             verticalSpacing(context.screenHeight / 20),
-            DontHaveAnAccount(
+            AppDontHaveAnAccount(
               fristText: AppStrings.didntReceiveTheOtp,
               lateText: AppStrings.resend,
             ),

@@ -24,10 +24,10 @@ class _SignUpFormState extends State<SignUpForm> {
   // late TextEditingController controllerPhoneNumber;
   @override
   void initState() {
-    controllerFullName = context.read<SingUpCubit>().controllerFullName;
-    controllerEmail = context.read<SingUpCubit>().controllerEmail;
-    controllerPassword = context.read<SingUpCubit>().controllerPassword;
-    controllerCountry = context.read<SingUpCubit>().controllerCountry;
+    controllerFullName = context.read<SignUpCubit>().controllerFullName;
+    controllerEmail = context.read<SignUpCubit>().controllerEmail;
+    controllerPassword = context.read<SignUpCubit>().controllerPassword;
+    controllerCountry = context.read<SignUpCubit>().controllerCountry;
     // controllerPhoneNumber = context.read<SingUpCubit>().controllerPhoneNumber;
     super.initState();
   }
@@ -45,7 +45,7 @@ class _SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<SingUpCubit>().keyFrom,
+      key: context.read<SignUpCubit>().keyFrom,
       child: Column(
         children: [
           AppTextFormField(
@@ -80,11 +80,11 @@ class _SignUpFormState extends State<SignUpForm> {
           verticalSpacing(15.h),
           CountryItem(),
           verticalSpacing(15.h),
-          BlocBuilder<SingUpCubit, SingUpState>(
+          BlocBuilder<SignUpCubit, SingUpState>(
             buildWhen: (previous, current) =>
                 current is ValidateUser || current is SingUpString,
             builder: (context, state) {
-              final cubit = context.read<SingUpCubit>();
+              final cubit = context.read<SignUpCubit>();
               return Column(
                 children: [
                   AppTextFormField(

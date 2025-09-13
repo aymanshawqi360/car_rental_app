@@ -1,5 +1,6 @@
 import 'package:car_rental_app/core/di/dependency_injection.dart';
 import 'package:car_rental_app/core/routing/routes.dart';
+import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:car_rental_app/features/auth/login/presentation/page/login_screen.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/page/reset_password_screen.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_cubit.dart';
@@ -18,8 +19,10 @@ class AppRouting {
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case Routes.login:
         return PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const LoginScreen(),
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) => sl<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
           reverseTransitionDuration: Duration(seconds: 1),
           transitionDuration: Duration(seconds: 1),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -35,7 +38,7 @@ class AppRouting {
       case Routes.signUp:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
-            create: (context) => SingUpCubit(singUpUseCases: sl()),
+            create: (context) => sl<SignUpCubit>(),
             child: const SignUpScreen(),
           ),
           reverseTransitionDuration: Duration(seconds: 1),

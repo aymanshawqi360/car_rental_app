@@ -11,7 +11,7 @@ class AppStrings {
   static const String forgotPassword = "Forgot Password";
   static const String welcomeBackReayToHitTheRoad =
       "Welcome Back\nReady to hit the road.";
-  static const String signUp = "Sign Up";
+  static const String signUp = "SignUp";
   static const String login = "Login";
   static const String search = "Search";
   static const String dontHaveAnAccountSignUp = "Don't have an account?  ";
@@ -47,4 +47,5 @@ class AppStrings {
   static const String thisPasswordIsRequired = "This password is required";
   static const String fullName = "Full Name";
   static const String emailAddress = "Email Address";
+  static const String cancel = "Cancel";
 }

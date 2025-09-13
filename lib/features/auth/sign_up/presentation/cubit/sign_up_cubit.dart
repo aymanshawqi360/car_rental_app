@@ -8,15 +8,15 @@ import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_s
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SingUpCubit extends Cubit<SingUpState> {
+class SignUpCubit extends Cubit<SingUpState> {
   final SignUpUseCases singUpUseCases;
-  SingUpCubit({required this.singUpUseCases}) : super(SingupInitial());
+  SignUpCubit({required this.singUpUseCases}) : super(SingupInitial());
   final controllerFullName = TextEditingController();
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
   final controllerCountry = TextEditingController();
   final controllerPhoneNumber = TextEditingController();
-  static SingUpCubit get(context) => BlocProvider.of(context);
+  static SignUpCubit get(context) => BlocProvider.of(context);
   final keyFrom = GlobalKey<FormState>();
   void singUp() async {
     emit(SingupLoading());

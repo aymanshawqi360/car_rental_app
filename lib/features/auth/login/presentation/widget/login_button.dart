@@ -1,11 +1,18 @@
 import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/app_colors.dart';
+import 'package:car_rental_app/core/utils/app_strings.dart';
+import 'package:car_rental_app/core/utils/assets_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:car_rental_app/core/widgets/app_button.dart';
+import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
+import 'package:car_rental_app/features/auth/login/presentation/cubit/login_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
@@ -18,11 +25,32 @@ class LoginButton extends StatelessWidget {
       children: [
         AppButton(
           height: SizeConfig.heightButton,
-          onTap: () {},
-          title: Text(
-            textAlign: TextAlign.center,
-            'Login',
-            style: TextStyles.font18WhiteBold,
+          onTap: () {
+            validationThenDoLoding(context: context);
+          },
+          title: BlocBuilder<LoginCubit, LoginState>(
+            builder: (context, state) {
+              if (state is LoginLoading) {
+                return Lottie.asset(
+                  AssetsManager.loading,
+                  height: 36.5.h,
+                  width: 36.5.w,
+                  delegates: LottieDelegates(
+                    values: [
+                      ValueDelegate.color(const [
+                        '**',
+                      ], value: ColorsManager.white),
+                    ],
+                  ),
+                );
+              } else {
+                return Text(
+                  textAlign: TextAlign.center,
+                  AppStrings.login,
+                  style: TextStyles.font18WhiteBold,
+                );
+              }
+            },
           ),
           style: TextStyles.font18WhiteBold,
         ),
@@ -37,7 +65,7 @@ class LoginButton extends StatelessWidget {
           color: ColorsManager.platinumGray,
           title: Text(
             textAlign: TextAlign.center,
-            'Sing up',
+            AppStrings.signUp,
             style: TextStyles.font18BlackBold,
           ),
           height: SizeConfig.heightButton,
@@ -45,5 +73,11 @@ class LoginButton extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  validationThenDoLoding({required BuildContext context}) {
+    if (context.read<LoginCubit>().keyFrom.currentState!.validate()) {
+      context.read<LoginCubit>().login();
+    }
   }
 }
