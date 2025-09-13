@@ -3,7 +3,7 @@ import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:car_rental_app/features/auth/login/presentation/page/login_screen.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/page/reset_password_screen.dart';
-import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/singup_cubit.dart';
+import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/page/sign_up_screen.dart';
 import 'package:car_rental_app/features/auth/verification_code/presentation/page/verification_code_screen.dart';
 import 'package:car_rental_app/features/auth/verify_your_phone_number/presentation/page/verify_your_phone_number_screen.dart';
