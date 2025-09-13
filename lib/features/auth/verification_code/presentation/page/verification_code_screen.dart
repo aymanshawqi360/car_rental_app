@@ -35,7 +35,7 @@ class VerificationCodeScreen extends StatelessWidget {
             verticalSpacing(context.screenHeight * 0.02),
             AppButton(
               height: SizeConfig.heightButton,
-              title: Text(
+              widget: Text(
                 AppStrings.continueButton,
                 style: TextStyles.font18WhiteBold,
               ),
