@@ -9,6 +9,8 @@ class AppStrings {
   static const String baseUrl = "https://qent.up.railway.app/api/auth";
   static const String rememberMe = "Remember Me";
   static const String forgotPassword = "Forgot Password";
+  static const String enterThefourCodeDigitVerificationCode =
+      "enter the 4 code digit verification code ";
   static const String welcomeBackReayToHitTheRoad =
       "Welcome Back\nReady to hit the road.";
   static const String signUp = "SignUp";
@@ -21,6 +23,7 @@ class AppStrings {
   static const String applePay = "Apple Pay";
   static const String returnToSingIn = "Return to sing in";
   static const String resetYourPassword = "Reset your password";
+  static const String emailVerification = "Email Verification";
   static const String email = "Email";
   static const String createA = "Create a";
   static const String newAccount = "\tNew account";

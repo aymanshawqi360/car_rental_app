@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-enum Token { accessToken, refreshToken }
+enum Token { accessToken, refreshToken, code, resetToken }
 
 class SecureStorage {
   static final storage = FlutterSecureStorage();

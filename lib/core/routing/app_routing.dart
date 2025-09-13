@@ -2,6 +2,8 @@ import 'package:car_rental_app/core/di/dependency_injection.dart';
 import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:car_rental_app/features/auth/login/presentation/page/login_screen.dart';
+import 'package:car_rental_app/features/auth/reset_password/presentation/cubit/reset_password_cubit.dart';
+import 'package:car_rental_app/features/auth/reset_password/presentation/page/email_verification_code.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/page/reset_password_screen.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/page/sign_up_screen.dart';
@@ -49,8 +51,10 @@ class AppRouting {
         );
       case Routes.resetPassword:
         return PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const ResetPasswordScreen(),
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) => sl<ResetPasswordCubit>(),
+            child: const ResetPasswordScreen(),
+          ),
           reverseTransitionDuration: Duration(seconds: 1),
           transitionDuration: Duration(seconds: 1),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -71,6 +75,16 @@ class AppRouting {
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const VerificationCodeScreen(),
+          reverseTransitionDuration: Duration(seconds: 1),
+          transitionDuration: Duration(seconds: 1),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        );
+      case Routes.emailVerificationCode:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const EmailVerificationCode(),
           reverseTransitionDuration: Duration(seconds: 1),
           transitionDuration: Duration(seconds: 1),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {

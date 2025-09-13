@@ -28,7 +28,7 @@ class LoginButton extends StatelessWidget {
           onTap: () {
             validationThenDoLoding(context: context);
           },
-          title: BlocBuilder<LoginCubit, LoginState>(
+          widget: BlocBuilder<LoginCubit, LoginState>(
             builder: (context, state) {
               if (state is LoginLoading) {
                 return Lottie.asset(
@@ -63,7 +63,7 @@ class LoginButton extends StatelessWidget {
             );
           },
           color: ColorsManager.platinumGray,
-          title: Text(
+          widget: Text(
             textAlign: TextAlign.center,
             AppStrings.signUp,
             style: TextStyles.font18BlackBold,

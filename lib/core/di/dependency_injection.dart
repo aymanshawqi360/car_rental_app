@@ -4,6 +4,11 @@ import 'package:car_rental_app/features/auth/login/data/repo_impl/login_repo_imp
 import 'package:car_rental_app/features/auth/login/domain/repo/login_repo_domain.dart';
 import 'package:car_rental_app/features/auth/login/domain/use_cases/login_use_cases.dart';
 import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
+import 'package:car_rental_app/features/auth/reset_password/data/api/reset_password_service.dart';
+import 'package:car_rental_app/features/auth/reset_password/data/repo_impl/reset_password_repo_implementation.dart';
+import 'package:car_rental_app/features/auth/reset_password/domain/repo/reset_password_repo_domain.dart';
+import 'package:car_rental_app/features/auth/reset_password/domain/use_acses/reset_password_use_cases.dart';
+import 'package:car_rental_app/features/auth/reset_password/presentation/cubit/reset_password_cubit.dart';
 import 'package:car_rental_app/features/auth/sign_up/data/api/api_sign_up_service.dart';
 import 'package:car_rental_app/features/auth/sign_up/data/repo_impl/sign_up_repo_implementation.dart';
 import 'package:car_rental_app/features/auth/sign_up/domain/repo/sign_up_repo_domain.dart';
@@ -29,6 +34,9 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<ApiLoginService>(
     () => ApiLoginService(dioFactory: sl()),
   );
+  sl.registerLazySingleton<ResetPasswordService>(
+    () => ResetPasswordService(dioFactory: sl()),
+  );
 
   //!RepoImpl
   sl.registerLazySingleton<SignUpRepoDomain>(
@@ -36,6 +44,9 @@ Future<void> setupGetIt() async {
   );
   sl.registerLazySingleton<LoginRepoDomain>(
     () => LoginRepoImplementation(loginApiService: sl()),
+  );
+  sl.registerLazySingleton<ResetPasswordRepoDomain>(
+    () => ResetPasswordRepoImplementation(resetPasswordService: sl()),
   );
 
   //!UseCases
@@ -45,8 +56,12 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<LoginUseCases>(
     () => LoginUseCases(loginRepoDomain: sl()),
   );
+  sl.registerLazySingleton<ResetPasswordUseCases>(
+    () => ResetPasswordUseCases(resetPasswordRepo: sl()),
+  );
 
   //!Cubit
   sl.registerFactory(() => SignUpCubit(singUpUseCases: sl()));
   sl.registerFactory(() => LoginCubit(loginUseCases: sl()));
+  sl.registerFactory(() => ResetPasswordCubit(resetPasswordUseCases: sl()));
 }
