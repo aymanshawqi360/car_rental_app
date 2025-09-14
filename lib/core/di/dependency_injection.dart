@@ -1,4 +1,6 @@
+import 'package:car_rental_app/config/constants/show_local_notifications_service.dart';
 import 'package:car_rental_app/core/network/dio_factory.dart';
+import 'package:car_rental_app/features/auth/email_verification/cubit/email_verification_cubit.dart';
 import 'package:car_rental_app/features/auth/login/data/api/api_login_service.dart';
 import 'package:car_rental_app/features/auth/login/data/repo_impl/login_repo_implementation.dart';
 import 'package:car_rental_app/features/auth/login/domain/repo/login_repo_domain.dart';
@@ -64,4 +66,11 @@ Future<void> setupGetIt() async {
   sl.registerFactory(() => SignUpCubit(singUpUseCases: sl()));
   sl.registerFactory(() => LoginCubit(loginUseCases: sl()));
   sl.registerFactory(() => ResetPasswordCubit(resetPasswordUseCases: sl()));
+  sl.registerFactory(() => EmailVerificationCubit());
+
+  //!Core
+
+  sl.registerLazySingleton<ShowLocalNotificationService>(
+    () => ShowLocalNotificationService(),
+  );
 }
