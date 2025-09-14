@@ -51,4 +51,5 @@ class AppStrings {
   static const String fullName = "Full Name";
   static const String emailAddress = "Email Address";
   static const String cancel = "Cancel";
+  static const String androidIcon = "@mipmap/ic_launcher";
 }

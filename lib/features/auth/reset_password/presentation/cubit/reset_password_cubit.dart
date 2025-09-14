@@ -34,7 +34,15 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
         value: response.data?.code ?? "",
         token: Token.code,
       );
-      emit(ResetPasswordSuccess());
+      emit(
+        ResetPasswordSuccess(
+          resetPasswordResponse: ResetPasswordResponse(
+            message: response.data?.message ?? "",
+            code: response.data?.code ?? "",
+            resetToken: response.data?.resetToken ?? "",
+          ),
+        ),
+      );
     } else if (response is Failure<ResetPasswordResponse>) {
       emit(
         ResetPasswordFailure(
