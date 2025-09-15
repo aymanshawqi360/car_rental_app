@@ -12,7 +12,7 @@ class ShowLocalNotificationService {
           android: AndroidInitializationSettings("@mipmap/ic_launcher"),
           iOS: DarwinInitializationSettings(),
         );
-    flutterLocalNotificationsPlugin.initialize(
+    await flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
       onDidReceiveBackgroundNotificationResponse: onTap,
       onDidReceiveNotificationResponse: onTap,
