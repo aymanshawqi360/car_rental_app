@@ -13,7 +13,7 @@ class ResetPasswordService {
   }) async {
     try {
       final resulte = await dioFactory.post(
-        ResetPasswordConstants.resetPassword,
+        ResetPasswordConstants.forgotPassword,
         body: requestPasswordResetCode.toJson(requestPasswordResetCode),
       );
 

@@ -9,6 +9,8 @@ class AppStrings {
   static const String baseUrl = "https://qent.up.railway.app/api/auth";
   static const String rememberMe = "Remember Me";
   static const String forgotPassword = "Forgot Password";
+  static const String setNewPassword =
+      "set new password and you will be able to login to your account";
   static const String enterThefourCodeDigitVerificationCode =
       "enter the 4 code digit verification code ";
   static const String welcomeBackReayToHitTheRoad =
@@ -19,6 +21,7 @@ class AppStrings {
   static const String dontHaveAnAccountSignUp = "Don't have an account?  ";
   static const String dontHaveAnAccountLogin = "Already have an account? ";
   static const String password = "Password";
+  static const String confirmPassword = "ConfirmPassword";
   static const String googlePay = "Google Pay";
   static const String applePay = "Apple Pay";
   static const String returnToSingIn = "Return to sing in";
@@ -27,6 +30,7 @@ class AppStrings {
   static const String email = "Email";
   static const String createA = "Create a";
   static const String newAccount = "\tNew account";
+  static const String newPassword = "New Password";
   static const String country = "Country";
   static const String continueButton = "Continue";
   static const String phoneNumber = "Phone Number";
@@ -48,6 +52,7 @@ class AppStrings {
   static const String thisFullNameIsRequired = "This full name is required";
   static const String thisEmailIsRequired = "This email is required";
   static const String thisPasswordIsRequired = "This password is required";
+  static const String thisConfirmPassword = "This password is Confirm Password";
   static const String fullName = "Full Name";
   static const String emailAddress = "Email Address";
   static const String cancel = "Cancel";

@@ -8,4 +8,5 @@ class Routes {
   static const String verifyYourPhoneNumber = "/verifyYourPhoneNumber";
   static const String verificationCodeScreen = "/verificationCodeScreen";
   static const String emailVerificationCode = "/emailVerificationCode";
+  static const String newPassword = "/newPassword";
 }

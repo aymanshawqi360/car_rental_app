@@ -1,4 +1,3 @@
-import 'package:car_rental_app/config/constants/show_local_notifications_service.dart';
 import 'package:car_rental_app/core/network/dio_factory.dart';
 import 'package:car_rental_app/features/auth/email_verification/cubit/email_verification_cubit.dart';
 import 'package:car_rental_app/features/auth/login/data/api/api_login_service.dart';
@@ -6,6 +5,11 @@ import 'package:car_rental_app/features/auth/login/data/repo_impl/login_repo_imp
 import 'package:car_rental_app/features/auth/login/domain/repo/login_repo_domain.dart';
 import 'package:car_rental_app/features/auth/login/domain/use_cases/login_use_cases.dart';
 import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
+import 'package:car_rental_app/features/auth/new_password/data/api/new_password_service.dart';
+import 'package:car_rental_app/features/auth/new_password/data/repo_impl/new_password_repo_implementation.dart';
+import 'package:car_rental_app/features/auth/new_password/domain/repo/new_password_repo_domain.dart';
+import 'package:car_rental_app/features/auth/new_password/domain/use_cases/new_password_use_cases.dart';
+import 'package:car_rental_app/features/auth/new_password/presentation/cubit/new_password_cubit.dart';
 import 'package:car_rental_app/features/auth/reset_password/data/api/reset_password_service.dart';
 import 'package:car_rental_app/features/auth/reset_password/data/repo_impl/reset_password_repo_implementation.dart';
 import 'package:car_rental_app/features/auth/reset_password/domain/repo/reset_password_repo_domain.dart';
@@ -23,10 +27,8 @@ import 'package:get_it/get_it.dart';
 final sl = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  //! Dio
-  sl.registerLazySingleton<Dio>(() => Dio());
-
   //! DioFactory
+  sl.registerLazySingleton<Dio>(() => Dio());
   sl.registerLazySingleton<DioFactory>(() => DioFactory(dio: sl()));
 
   //!Data
@@ -39,6 +41,9 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<ResetPasswordService>(
     () => ResetPasswordService(dioFactory: sl()),
   );
+  sl.registerLazySingleton<NewPasswordService>(
+    () => NewPasswordService(dioFactory: sl()),
+  );
 
   //!RepoImpl
   sl.registerLazySingleton<SignUpRepoDomain>(
@@ -49,6 +54,9 @@ Future<void> setupGetIt() async {
   );
   sl.registerLazySingleton<ResetPasswordRepoDomain>(
     () => ResetPasswordRepoImplementation(resetPasswordService: sl()),
+  );
+  sl.registerLazySingleton<NewPasswordRepoDomain>(
+    () => NewPasswordRepoImplementation(newPasswordService: sl()),
   );
 
   //!UseCases
@@ -61,16 +69,16 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<ResetPasswordUseCases>(
     () => ResetPasswordUseCases(resetPasswordRepo: sl()),
   );
+  sl.registerLazySingleton<NewPasswordUseCases>(
+    () => NewPasswordUseCases(newPasswordRepoDomain: sl()),
+  );
 
   //!Cubit
   sl.registerFactory(() => SignUpCubit(singUpUseCases: sl()));
   sl.registerFactory(() => LoginCubit(loginUseCases: sl()));
   sl.registerFactory(() => ResetPasswordCubit(resetPasswordUseCases: sl()));
+  sl.registerFactory(() => NewPasswordCubit(newPasswordUseCases: sl()));
   sl.registerFactory(() => EmailVerificationCubit());
 
   //!Core
-
-  sl.registerLazySingleton<ShowLocalNotificationService>(
-    () => ShowLocalNotificationService(),
-  );
 }

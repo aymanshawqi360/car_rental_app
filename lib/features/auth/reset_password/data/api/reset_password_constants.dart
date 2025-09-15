@@ -1,4 +1,4 @@
 class ResetPasswordConstants {
   ResetPasswordConstants._();
-  static const resetPassword = "/forgot_password/";
+  static const forgotPassword = "/forgot_password/";
 }
