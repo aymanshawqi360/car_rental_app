@@ -1,3 +1,4 @@
+import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/app_colors.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/features/auth/email_verification/cubit/email_verification_cubit.dart';
@@ -13,7 +14,15 @@ class IntlPhoneFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EmailVerificationCubit, EmailVerificationState>(
+    return BlocConsumer<EmailVerificationCubit, EmailVerificationState>(
+      listener: (context, state) {
+        if (state is EmailVerificationSuccess) {
+          context.pushNamedAndRemoveUntil(
+            Routes.newPassword,
+            predicate: (_) => false,
+          );
+        }
+      },
       buildWhen: (previous, current) =>
           current is EmailVerificationFailure ||
           current is EmailVerificationLoading ||
