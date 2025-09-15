@@ -3,6 +3,8 @@ import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/features/auth/email_verification/cubit/email_verification_cubit.dart';
 import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:car_rental_app/features/auth/login/presentation/page/login_screen.dart';
+import 'package:car_rental_app/features/auth/new_password/presentation/cubit/new_password_cubit.dart';
+import 'package:car_rental_app/features/auth/new_password/presentation/page/new_password.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/cubit/reset_password_cubit.dart';
 import 'package:car_rental_app/features/auth/email_verification/page/email_verification_code.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/page/reset_password_screen.dart';
@@ -87,6 +89,18 @@ class AppRouting {
           pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => sl<EmailVerificationCubit>(),
             child: const EmailVerificationCode(),
+          ),
+          reverseTransitionDuration: Duration(seconds: 1),
+          transitionDuration: Duration(seconds: 1),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        );
+      case Routes.newPassword:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) => sl<NewPasswordCubit>(),
+            child: const NewPassword(),
           ),
           reverseTransitionDuration: Duration(seconds: 1),
           transitionDuration: Duration(seconds: 1),
