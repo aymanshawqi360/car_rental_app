@@ -47,6 +47,49 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   SignUpForm(),
+                  BlocBuilder<SignUpCubit, SignUpState>(
+                    buildWhen: (previous, current) =>
+                        current is SignUpAvailableToCreateCar,
+                    builder: (context, state) {
+                      final cubit = context.read<SignUpCubit>();
+                      return GestureDetector(
+                        onTap: () {
+                          // isSelected = !isSelected;
+                          cubit.verificationCodeRepo();
+                        },
+                        child: Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 2),
+                              width: 20,
+                              height: 20,
+                              decoration: BoxDecoration(
+                                color: cubit.isTru
+                                    ? ColorsManager.onyx
+                                    : Colors.transparent,
+                                border: Border.all(
+                                  color: cubit.isTru
+                                      ? ColorsManager.onyx
+                                      : ColorsManager.onyx,
+                                  width: 2,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: cubit.isTru
+                                  ? Icon(
+                                      Icons.check,
+                                      color: Colors.white,
+                                      size: 16,
+                                    )
+                                  : null,
+                            ),
+                            horizontalSpacing(5),
+                            Text("Available to create car"),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                   verticalSpacing(context.bodyHeight * 0.04),
                   Column(
                     children: [
@@ -55,9 +98,9 @@ class SignUpScreen extends StatelessWidget {
                         onTap: () {
                           validationThenDoSingUp(context: context);
                         },
-                        widget: BlocBuilder<SignUpCubit, SingUpState>(
+                        widget: BlocBuilder<SignUpCubit, SignUpState>(
                           builder: (context, state) {
-                            if (state is SingupLoading) {
+                            if (state is SingUpLoading) {
                               return Lottie.asset(
                                 AssetsManager.loading,
                                 height: 36.5.h,
@@ -80,6 +123,7 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       verticalSpacing(context.screenHeight * 0.03),
+
                       AppButton(
                         onTap: () {
                           context.pushNamedAndRemoveUntil(
