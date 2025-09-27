@@ -20,11 +20,11 @@ class ApiErrorModel {
     final message = StringBuffer();
     for (var data in errors!.entries) {
       if (data.value is List) {
-        for (var d in data.value) {
-          message.writeln(d);
+        for (var data in data.value) {
+          message.writeln("— ${data}");
         }
       } else {
-        message.writeln(data.value);
+        message.writeln("— ${data.value}");
       }
     }
     return message.toString();
