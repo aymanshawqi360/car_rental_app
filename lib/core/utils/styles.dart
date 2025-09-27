@@ -92,4 +92,10 @@ class TextStyles {
     fontSize: 28.6,
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font15BlackMedium = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 15.0,
+    fontWeight: FontWeightHelper.medium,
+  );
 }
