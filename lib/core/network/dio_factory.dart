@@ -1,5 +1,6 @@
 import 'package:car_rental_app/core/network/api_consumer.dart';
-import 'package:car_rental_app/core/utils/app_strings.dart';
+import 'package:car_rental_app/core/network/api_interceptors_wrapper.dart';
+import 'package:car_rental_app/core/network/base_url.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -9,13 +10,24 @@ class DioFactory extends ApiConsumer {
   DioFactory({required this.dio}) {
     final time = const Duration(seconds: 30);
     dio.options = BaseOptions(
-      baseUrl: AppStrings.baseUrl,
+      baseUrl: BaseUrl.baseUrl,
       connectTimeout: time,
       receiveTimeout: time,
       //  headers: {'Content-Type': 'application/json'},
     );
 
-    dio.interceptors.add(
+    // dio.interceptors.add(
+    //   PrettyDioLogger(
+    //     request: true,
+    //     error: true,
+    //     requestBody: true,
+    //     requestHeader: true,
+    //     responseBody: true,
+    //     responseHeader: true,
+    //   ),
+    //   ApiInterceptorsWrapper(dio: dio),
+    // );
+    dio.interceptors.addAll([
       PrettyDioLogger(
         request: true,
         error: true,
@@ -24,7 +36,8 @@ class DioFactory extends ApiConsumer {
         responseBody: true,
         responseHeader: true,
       ),
-    );
+      ApiInterceptorsWrapper(dio: dio),
+    ]);
   }
 
   @override
@@ -35,6 +48,20 @@ class DioFactory extends ApiConsumer {
   }) async {
     try {
       final result = await dio.post(path, data: body);
+      return result;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Response> get(
+    String path, {
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParametes,
+  }) async {
+    try {
+      final result = await dio.get(path, queryParameters: queryParametes);
       return result;
     } catch (e) {
       rethrow;
