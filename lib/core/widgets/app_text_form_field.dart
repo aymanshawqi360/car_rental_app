@@ -16,7 +16,7 @@ class AppTextFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
   final Widget? suffixIcon;
-  final bool obscureText = false;
+  final bool? obscureText;
   final Widget? prefixIcon;
   final int? maxLength;
   final TextInputType? keyboardType;
@@ -41,6 +41,7 @@ class AppTextFormField extends StatelessWidget {
     this.keyboardType,
     this.errorText,
     this.error,
+    this.obscureText,
   });
 
   @override
@@ -82,7 +83,7 @@ class AppTextFormField extends StatelessWidget {
         prefixIcon: prefixIcon,
         errorText: errorText,
       ),
-      obscureText: obscureText,
+      obscureText: obscureText ?? false,
       cursorColor: ColorsManager.black,
       cursorErrorColor: ColorsManager.black,
       validator: (value) {
