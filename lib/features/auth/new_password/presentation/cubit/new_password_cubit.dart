@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:car_rental_app/config/constants/secure_storage.dart';
 import 'package:car_rental_app/core/error/api_error_model.dart';
@@ -31,8 +29,6 @@ class NewPasswordCubit extends Cubit<NewPasswordState> {
     );
 
     if (response is Success<String>) {
-      String vv = response.data ?? "";
-      log("NewPassword ===================================");
       emit(NewPasswordSuccess());
     } else if (response is Failure<String>) {
       emit(
