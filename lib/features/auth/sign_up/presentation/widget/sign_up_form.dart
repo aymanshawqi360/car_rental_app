@@ -1,10 +1,12 @@
 import 'package:car_rental_app/core/utils/app_colors.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
+import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
 import 'package:car_rental_app/core/widgets/app_text_form_field.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_state.dart';
-import 'package:car_rental_app/features/auth/sign_up/presentation/widget/country_item.dart';
+import 'package:car_rental_app/features/auth/sign_up/presentation/widget/country_drop_down.dart';
+import 'package:car_rental_app/features/auth/sign_up/presentation/widget/location_drop_down.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,14 +23,15 @@ class _SignUpFormState extends State<SignUpForm> {
   late TextEditingController controllerEmail;
   late TextEditingController controllerPassword;
   late TextEditingController controllerCountry;
-  // late TextEditingController controllerPhoneNumber;
+  late TextEditingController controllerPhoneNumber;
   @override
   void initState() {
     controllerFullName = context.read<SignUpCubit>().controllerFullName;
     controllerEmail = context.read<SignUpCubit>().controllerEmail;
     controllerPassword = context.read<SignUpCubit>().controllerPassword;
     controllerCountry = context.read<SignUpCubit>().controllerCountry;
-    // controllerPhoneNumber = context.read<SingUpCubit>().controllerPhoneNumber;
+    controllerPhoneNumber = context.read<SignUpCubit>().controllerPhoneNumber;
+
     super.initState();
   }
 
@@ -38,7 +41,7 @@ class _SignUpFormState extends State<SignUpForm> {
     controllerEmail.dispose();
     controllerPassword.dispose();
     controllerCountry.dispose();
-    // controllerPhoneNumber.dispose();
+    controllerPhoneNumber.dispose();
     super.dispose();
   }
 
@@ -52,7 +55,7 @@ class _SignUpFormState extends State<SignUpForm> {
             controller: controllerFullName,
             validator: (value) {
               if (value?.isEmpty ?? value == null) {
-                return AppStrings.thisFullNameIsRequired;
+                return AppStrings.pleaseEnterTheFullName;
               }
             },
             hintText: AppStrings.fullName,
@@ -68,32 +71,50 @@ class _SignUpFormState extends State<SignUpForm> {
             },
           ),
           verticalSpacing(15.h),
-          AppTextFormField(
-            controller: controllerPassword,
-            hintText: AppStrings.password,
-            validator: (value) {
-              if (value?.isEmpty ?? value == null) {
-                return AppStrings.thisPasswordIsRequired;
-              }
+          BlocBuilder<SignUpCubit, SignUpState>(
+            builder: (context, state) {
+              final cubit = context.read<SignUpCubit>();
+              return AppTextFormField(
+                controller: controllerPassword,
+                hintText: AppStrings.password,
+                validator: (value) {
+                  if (value?.isEmpty ?? value == null) {
+                    return AppStrings.thisPasswordIsRequired;
+                  }
+                },
+                obscureText: cubit.obscureText,
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    cubit.passwordsecurity();
+                  },
+                  child: cubit.obscureText
+                      ? Icon(Icons.visibility_off_outlined)
+                      : Icon(Icons.remove_red_eye_outlined),
+                ),
+              );
             },
           ),
           verticalSpacing(15.h),
-          CountryItem(),
+          LocationDropDown(),
           verticalSpacing(15.h),
-          BlocBuilder<SignUpCubit, SingUpState>(
+          CountryDropDown(),
+          verticalSpacing(15.h),
+          BlocBuilder<SignUpCubit, SignUpState>(
             buildWhen: (previous, current) =>
-                current is ValidateUser || current is SingUpString,
+                current is ValidateUser || current is AddValuesCountry,
             builder: (context, state) {
               final cubit = context.read<SignUpCubit>();
+
               return Column(
                 children: [
                   AppTextFormField(
-                    //   controller: controllerPhoneNumber,
+                    controller: controllerPhoneNumber,
                     keyboardType: TextInputType.phone,
-                    maxLength: cubit.maxLength,
+                    vertical: context.screenHeight / 61,
+                    //   maxLength: cubit.maxLength,
                     prefixIcon: Container(
                       width: 70.w,
-                      height: 41.5.h,
+                      height: 41.6.h,
                       margin: EdgeInsets.only(left: 1),
                       decoration: BoxDecoration(
                         color: ColorsManager.platinumGray,
@@ -105,8 +126,9 @@ class _SignUpFormState extends State<SignUpForm> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(cubit.countryCode ?? AppStrings.countryName),
-                          Text("+${cubit.dialCode ?? AppStrings.areaCode}"),
+                          Text(
+                            " ${cubit.countryCode ?? AppStrings.countryName}",
+                          ),
                         ],
                       ),
                     ),

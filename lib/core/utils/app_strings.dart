@@ -6,7 +6,7 @@ class AppStrings {
   static const String description =
       "Discover your next adventure with Qent. we’re here to provide you with a seamless car rental experience.Let’s get started on your journey.";
   static const String qent = "Qent";
-  static const String baseUrl = "https://qent.up.railway.app/api/auth";
+  static const String baseUrl = "https://qent.up.railway.app/api/";
   static const String rememberMe = "Remember Me";
   static const String forgotPassword = "Forgot Password";
   static const String setNewPassword =
@@ -32,14 +32,15 @@ class AppStrings {
   static const String newAccount = "\tNew account";
   static const String newPassword = "New Password";
   static const String country = "Country";
+  static const String location = "Location";
+  static const String noMoreData = "No more Data";
   static const String continueButton = "Continue";
   static const String phoneNumber = "Phone Number";
   static const String didntReceiveTheOtp = "Didn’t receive the OTP?";
   static const String resend = "\tResend.";
   static const String verifyYourPhoneNumber = "Verify your phone number";
   static const String enterVerificationCode = "Enter verification code";
-  static const String weHaveSendACodeTo =
-      "We have send a Code to : +100******00";
+  static const String weHaveSendACodeTo = "We have send a Code to : ";
   static const String weHaveSentYouAnSmsWithACodeToNumber =
       "We have sent you an SMS with a code to number";
   static const String specialDescriptionInThePassword =
@@ -49,12 +50,16 @@ class AppStrings {
   static const String areaCode = "976";
   static const String defaultNumber = "10xxxxxxxxxxxxxxxxxx";
   static const String intlPhoneField = "intl_phone_field";
-  static const String thisFullNameIsRequired = "This full name is required";
-  static const String thisEmailIsRequired = "This email is required";
+  static const String pleaseEnterTheFullName = "Please enter the phone number";
+  static const String thisEmailIsRequired = "Please enter the email";
   static const String thisPasswordIsRequired = "This password is required";
   static const String thisConfirmPassword = "This password is Confirm Password";
+  static const String pleaseEnterThePhoneNumber =
+      "Please enter the phone number";
   static const String fullName = "Full Name";
   static const String emailAddress = "Email Address";
   static const String cancel = "Cancel";
   static const String androidIcon = "@mipmap/ic_launcher";
+  static const String page = "page";
+  static const String skip = "Skip";
 }

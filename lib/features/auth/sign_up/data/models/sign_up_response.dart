@@ -1,43 +1,31 @@
-class SignUpResponse {
-  final User? user;
-  final String? message;
-  final Tokens? tokens;
+import 'package:car_rental_app/config/Shared/user_data_response.dart';
+
+class SignUpResponse extends User {
+  User? user;
+  String? message;
+  Tokens? tokens;
 
   SignUpResponse({
     required this.user,
     required this.message,
     required this.tokens,
+    super.country,
+    super.email,
+    super.fullName,
+    super.id,
+    super.location,
+    super.phone,
+    super.phoneIsVerified,
   });
   factory SignUpResponse.fromJson(Map<String, dynamic> json) {
     return SignUpResponse(
-      user: json["user"] != null ? User.fromJson(json["user"]) : null,
+      user: json['user'] != null ? User.fromJson(json['user']) : null,
       message: json["message"] as String,
-      tokens: json["tokens"] != null ? Tokens.fromJson(json["tokens"]) : null,
+      tokens: json['tokens'] != null ? Tokens.fromJson(json['tokens']) : null,
     );
   }
 
-  Map<String, dynamic> toJson(User user) => {
-    "id": user.id,
-    "full_name": user.fullName,
-    "email": user.email,
-  };
-}
-
-class User {
-  final int? id;
-  final String? fullName;
-  final String? email;
-
-  User({required this.id, required this.fullName, required this.email});
-
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      id: json["id"] as int,
-      fullName: json["full_name"] as String,
-      email: json["email"] as String,
-    );
-  }
-
+  @override
   Map<String, dynamic> toJson(User user) => {
     "id": user.id,
     "full_name": user.fullName,

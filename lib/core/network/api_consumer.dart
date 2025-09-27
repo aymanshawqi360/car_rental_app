@@ -4,4 +4,10 @@ abstract class ApiConsumer {
     Map<String, dynamic>? body,
     Map<String, dynamic>? queryParameters,
   });
+
+  Future<dynamic> get(
+    String path, {
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParametes,
+  });
 }

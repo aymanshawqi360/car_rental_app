@@ -20,6 +20,11 @@ import 'package:car_rental_app/features/auth/sign_up/data/repo_impl/sign_up_repo
 import 'package:car_rental_app/features/auth/sign_up/domain/repo/sign_up_repo_domain.dart';
 import 'package:car_rental_app/features/auth/sign_up/domain/use_cases/sign_up_use_cases.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
+import 'package:car_rental_app/features/auth/verification_code/data/api/verification_code_api_service.dart';
+import 'package:car_rental_app/features/auth/verification_code/data/repo_impl/verification_code_repo_implementation.dart';
+import 'package:car_rental_app/features/auth/verification_code/domain/repo/verification_code_repo.dart';
+import 'package:car_rental_app/features/auth/verification_code/domain/use_cases/verification_code_use_cases.dart';
+import 'package:car_rental_app/features/auth/verification_code/presentation/cubit/verification_code_cubit.dart';
 
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -44,6 +49,9 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<NewPasswordService>(
     () => NewPasswordService(dioFactory: sl()),
   );
+  sl.registerLazySingleton<VerificationCodeApiService>(
+    () => VerificationCodeApiService(dioFactory: sl()),
+  );
 
   //!RepoImpl
   sl.registerLazySingleton<SignUpRepoDomain>(
@@ -57,6 +65,9 @@ Future<void> setupGetIt() async {
   );
   sl.registerLazySingleton<NewPasswordRepoDomain>(
     () => NewPasswordRepoImplementation(newPasswordService: sl()),
+  );
+  sl.registerLazySingleton<VerificationCodeRepo>(
+    () => VerificationCodeRepoImplementation(verificationCodeApiService: sl()),
   );
 
   //!UseCases
@@ -72,12 +83,18 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<NewPasswordUseCases>(
     () => NewPasswordUseCases(newPasswordRepoDomain: sl()),
   );
+  sl.registerLazySingleton<VerificationCodeUseCases>(
+    () => VerificationCodeUseCases(verificationCodeRepo: sl()),
+  );
 
   //!Cubit
   sl.registerFactory(() => SignUpCubit(singUpUseCases: sl()));
   sl.registerFactory(() => LoginCubit(loginUseCases: sl()));
   sl.registerFactory(() => ResetPasswordCubit(resetPasswordUseCases: sl()));
   sl.registerFactory(() => NewPasswordCubit(newPasswordUseCases: sl()));
+  sl.registerFactory(
+    () => VerificationCodeCubit(verificationCodeUseCases: sl()),
+  );
   sl.registerFactory(() => EmailVerificationCubit());
 
   //!Core

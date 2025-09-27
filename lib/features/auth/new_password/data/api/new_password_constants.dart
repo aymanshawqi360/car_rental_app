@@ -1,5 +1,5 @@
 class NewPasswordConstants {
   NewPasswordConstants._();
 
-  static String resetPassword = "/reset_password/";
+  static String resetPassword = "auth/reset_password/";
 }

@@ -10,6 +10,7 @@ import 'package:car_rental_app/features/auth/email_verification/page/email_verif
 import 'package:car_rental_app/features/auth/reset_password/presentation/page/reset_password_screen.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/page/sign_up_screen.dart';
+import 'package:car_rental_app/features/auth/verification_code/presentation/cubit/verification_code_cubit.dart';
 import 'package:car_rental_app/features/auth/verification_code/presentation/page/verification_code_screen.dart';
 import 'package:car_rental_app/features/auth/verify_your_phone_number/presentation/page/verify_your_phone_number_screen.dart';
 import 'package:car_rental_app/features/onboarding/page/onboarding_screen.dart';
@@ -43,7 +44,9 @@ class AppRouting {
       case Routes.signUp:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
-            create: (context) => sl<SignUpCubit>(),
+            create: (context) => sl<SignUpCubit>()
+              ..getLocation(isRefrash: false)
+              ..getCountries(isRefrash: false),
             child: const SignUpScreen(),
           ),
           reverseTransitionDuration: Duration(seconds: 1),
@@ -76,8 +79,11 @@ class AppRouting {
         );
       case Routes.verificationCodeScreen:
         return PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const VerificationCodeScreen(),
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
+            create: (context) =>
+                sl<VerificationCodeCubit>()..checkIfPhoneNumber(),
+            child: const VerificationCodeScreen(),
+          ),
           reverseTransitionDuration: Duration(seconds: 1),
           transitionDuration: Duration(seconds: 1),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
