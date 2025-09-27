@@ -1,4 +1,5 @@
 import 'package:car_rental_app/core/error/show_error_message.dart';
+import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_state.dart';
@@ -10,22 +11,20 @@ class SignUpBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignUpCubit, SingUpState>(
+    return BlocListener<SignUpCubit, SignUpState>(
       listenWhen: (previous, current) =>
-          current is SingupLoading ||
-          current is SingupSuccess ||
-          current is SingupFailure,
-      listener: (context, state) {
-        if (state is SingupLoading) {
-          // _setupLoadingSate(context);
-        } else if (state is SingupSuccess) {
-          context.pop();
-          // context.pushNamedAndRemoveUntil(
-          //   Routes.buttonNavigateBetweenScreen,
-          //   predicate: (_) => false,
-          // );
-        } else if (state is SingupFailure) {
-          // context.pop();
+          current is SingUpLoading ||
+          current is SingUpSuccess ||
+          current is SingUpFailure,
+
+      listener: (context, state) async {
+        if (state is SingUpLoading) {
+        } else if (state is SingUpSuccess) {
+          context.pushNamedAndRemoveUntil(
+            Routes.verificationCodeScreen,
+            predicate: (_) => false,
+          );
+        } else if (state is SingUpFailure) {
           _setupErrorState(context, state);
         }
       },
@@ -34,8 +33,7 @@ class SignUpBlocListener extends StatelessWidget {
   }
 }
 
-void _setupErrorState(BuildContext context, SingupFailure state) {
-  // context.pop();
+void _setupErrorState(BuildContext context, SingUpFailure state) {
   ShowErrorMessage.instance.showErrorMessage(
     context: context,
     errorMessage: state.apiErrorModel.allSignUpError(),
