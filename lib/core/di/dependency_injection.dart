@@ -1,5 +1,7 @@
+import 'package:car_rental_app/core/functions/user_check.dart';
+import 'package:car_rental_app/core/functions/user_service.dart';
 import 'package:car_rental_app/core/network/dio_factory.dart';
-import 'package:car_rental_app/features/auth/email_verification/cubit/email_verification_cubit.dart';
+import 'package:car_rental_app/features/auth/email_verification/presentation/cubit/email_verification_cubit.dart';
 import 'package:car_rental_app/features/auth/login/data/api/api_login_service.dart';
 import 'package:car_rental_app/features/auth/login/data/repo_impl/login_repo_implementation.dart';
 import 'package:car_rental_app/features/auth/login/domain/repo/login_repo_domain.dart';
@@ -25,6 +27,11 @@ import 'package:car_rental_app/features/auth/verification_code/data/repo_impl/ve
 import 'package:car_rental_app/features/auth/verification_code/domain/repo/verification_code_repo.dart';
 import 'package:car_rental_app/features/auth/verification_code/domain/use_cases/verification_code_use_cases.dart';
 import 'package:car_rental_app/features/auth/verification_code/presentation/cubit/verification_code_cubit.dart';
+import 'package:car_rental_app/features/home/data/api/home_api_service.dart';
+import 'package:car_rental_app/features/home/data/repo_impl/home_repo_implementaion.dart';
+import 'package:car_rental_app/features/home/domain/repo/home_repo.dart';
+import 'package:car_rental_app/features/home/domain/user_cases/brands_user_case.dart';
+import 'package:car_rental_app/features/home/presentation/cubit/home_cubit.dart';
 
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -52,6 +59,9 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<VerificationCodeApiService>(
     () => VerificationCodeApiService(dioFactory: sl()),
   );
+  sl.registerLazySingleton<HomeApiService>(
+    () => HomeApiService(dioFactory: sl()),
+  );
 
   //!RepoImpl
   sl.registerLazySingleton<SignUpRepoDomain>(
@@ -68,6 +78,9 @@ Future<void> setupGetIt() async {
   );
   sl.registerLazySingleton<VerificationCodeRepo>(
     () => VerificationCodeRepoImplementation(verificationCodeApiService: sl()),
+  );
+  sl.registerLazySingleton<HomeRepo>(
+    () => HomeRepoImplementaion(homeApiService: sl()),
   );
 
   //!UseCases
@@ -86,6 +99,9 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<VerificationCodeUseCases>(
     () => VerificationCodeUseCases(verificationCodeRepo: sl()),
   );
+  sl.registerLazySingleton<BrandsUserCase>(
+    () => BrandsUserCase(homeRepo: sl()),
+  );
 
   //!Cubit
   sl.registerFactory(() => SignUpCubit(singUpUseCases: sl()));
@@ -96,6 +112,8 @@ Future<void> setupGetIt() async {
     () => VerificationCodeCubit(verificationCodeUseCases: sl()),
   );
   sl.registerFactory(() => EmailVerificationCubit());
+  sl.registerFactory(() => HomeCubit(brandsUserCase: sl()));
 
   //!Core
+  sl.registerLazySingleton<UserCheck>(() => UserService());
 }

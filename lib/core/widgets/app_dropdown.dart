@@ -1,4 +1,4 @@
-import 'package:car_rental_app/core/utils/app_colors.dart';
+import 'package:car_rental_app/core/utils/colors_manager.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/widgets/app_text_form_field.dart';

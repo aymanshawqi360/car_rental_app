@@ -1,4 +1,4 @@
-import 'package:car_rental_app/config/Shared/user_data_response.dart';
+import 'package:car_rental_app/core/Shared/user_data_response.dart';
 import 'package:car_rental_app/core/error/api_error_handler.dart';
 import 'package:car_rental_app/core/error/api_resulte.dart';
 import 'package:car_rental_app/features/auth/verification_code/data/api/verification_code_api_service.dart';

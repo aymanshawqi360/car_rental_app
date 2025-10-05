@@ -62,4 +62,7 @@ class AppStrings {
   static const String androidIcon = "@mipmap/ic_launcher";
   static const String page = "page";
   static const String skip = "Skip";
+  static const String brands = "Brands";
+  static const String searchYourDreamCar = "Search your dream car.....";
+  static bool isLoggedInUser = false;
 }

@@ -1,5 +1,6 @@
 import 'package:car_rental_app/config/responsive/size_config.dart';
-import 'package:car_rental_app/core/utils/app_colors.dart';
+import 'package:car_rental_app/core/routing/routes.dart';
+import 'package:car_rental_app/core/utils/colors_manager.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/assets_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
@@ -40,10 +41,20 @@ class VerificationCodeScreen extends StatelessWidget {
 
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(right: context.screenWidth * 0.05),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamedAndRemoveUntil(
+                        Routes.homeScreen,
+                        predicate: (_) => false,
+                      );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        right: context.screenWidth * 0.05,
+                      ),
 
-                    child: Text(AppStrings.skip),
+                      child: Text(AppStrings.skip),
+                    ),
                   ),
                 ],
               ),
@@ -109,11 +120,9 @@ class VerificationCodeScreen extends StatelessWidget {
                     fristText: AppStrings.didntReceiveTheOtp,
                     lateText: AppStrings.resend,
                     onTap: () async {
-                      context.read<VerificationCodeCubit>().checkIfPhoneNumber(
-                        // phone:
-                        //     await SecureStorage.getData(token: Token.phone) ??
-                        //     '',
-                      );
+                      context
+                          .read<VerificationCodeCubit>()
+                          .checkIfPhoneNumber();
                     },
                   ),
                 ],

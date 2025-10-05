@@ -1,4 +1,4 @@
-import 'package:car_rental_app/config/constants/show_local_notifications_service.dart';
+import 'package:car_rental_app/core/constants/show_local_notifications_service.dart';
 import 'package:car_rental_app/core/error/show_error_message.dart';
 import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
@@ -26,7 +26,7 @@ class VerificationCodeBlocListener extends StatelessWidget {
           _buildConfirmVerifyCodeFailureState(state: state, context: context);
         } else if (state is ConfirmVerifyCodeSuccess) {
           context.pushNamedAndRemoveUntil(
-            Routes.login,
+            Routes.homeScreen,
             predicate: (_) => false,
           );
         } else if (state is CheckIfPhoneNumberSuccess) {

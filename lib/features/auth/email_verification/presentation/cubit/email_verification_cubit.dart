@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:car_rental_app/config/constants/secure_storage.dart';
-import 'package:car_rental_app/features/auth/email_verification/cubit/email_verification_state.dart';
+import 'package:car_rental_app/core/constants/secure_storage.dart';
+import 'package:car_rental_app/features/auth/email_verification/presentation/cubit/email_verification_state.dart';
 
 class EmailVerificationCubit extends Cubit<EmailVerificationState> {
   EmailVerificationCubit() : super(EmailVerificationInitial());

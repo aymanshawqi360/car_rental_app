@@ -1,5 +1,5 @@
 import 'package:car_rental_app/config/change_notifier/onboarding_change.dart';
-import 'package:car_rental_app/config/constants/model_onboarding.dart';
+import 'package:car_rental_app/core/constants/model_onboarding.dart';
 import 'package:car_rental_app/features/onboarding/widget/image_and_text.dart';
 import 'package:flutter/material.dart';
 
@@ -11,30 +11,27 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  late PageController controller;
-  @override
-  void initState() {
-    controller = OnboardingChange.instance.controller;
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+  // late PageController pageController;
+  // @override
+  // void initState() {
+  //   pageController = OnboardingChange.instance.controller;
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
+    final onboarding = OnboardingChange.instance;
+
     return Scaffold(
       body: ListenableBuilder(
-        listenable: OnboardingChange(),
+        listenable: onboarding,
         builder: (context, child) {
           return PageView(
-            onPageChanged: (value) {
-              OnboardingChange().userScroll(value);
-            },
-            controller: controller,
+            // onPageChanged: (value) {
+            //          OnboardingChange().userScroll(value);
+            // },
+            controller: onboarding.controller,
+            //  OnboardingChange.instance.controller,
             children: List.generate(ModelOnboarding.onboardings.length, (
               index,
             ) {

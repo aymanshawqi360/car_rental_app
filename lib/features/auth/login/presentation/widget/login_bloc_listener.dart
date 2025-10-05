@@ -20,7 +20,7 @@ class LoginBlocListener extends StatelessWidget {
         if (state is LoginLoading) {
           // buildStateLoading();
         } else if (state is LoginSuccess) {
-          // _buildStateSuccess(context: context);
+          _buildStateSuccess(context: context);
         } else if (state is LoginFailure) {
           _buildStateFailure(context: context, state: state);
         }
@@ -29,9 +29,9 @@ class LoginBlocListener extends StatelessWidget {
     );
   }
 
-  Future<dynamic> _buildStateSuccess({required BuildContext context}) {
+  _buildStateSuccess({required BuildContext context}) {
     return context.pushNamedAndRemoveUntil(
-      Routes.emailVerificationCode,
+      Routes.homeScreen,
       predicate: (_) => false,
     );
   }

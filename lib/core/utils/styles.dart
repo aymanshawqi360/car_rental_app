@@ -1,7 +1,8 @@
-import 'package:car_rental_app/core/utils/app_colors.dart';
+import 'package:car_rental_app/core/utils/colors_manager.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/font_weight_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyles {
   TextStyles._();
@@ -97,5 +98,17 @@ class TextStyles {
     color: ColorsManager.black,
     fontSize: 15.0,
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font10WhiteBold = TextStyle(
+    //fontFamily: AppStrings.roboto,
+    color: ColorsManager.white,
+    fontSize: 10.0.r,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font13BlackSemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 13.0.r,
+    fontWeight: FontWeightHelper.semiBold,
   );
 }

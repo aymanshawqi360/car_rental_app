@@ -1,18 +1,20 @@
 import 'package:car_rental_app/core/di/dependency_injection.dart';
 import 'package:car_rental_app/core/routing/routes.dart';
-import 'package:car_rental_app/features/auth/email_verification/cubit/email_verification_cubit.dart';
+import 'package:car_rental_app/features/auth/email_verification/presentation/cubit/email_verification_cubit.dart';
 import 'package:car_rental_app/features/auth/login/presentation/cubit/login_cubit.dart';
-import 'package:car_rental_app/features/auth/login/presentation/page/login_screen.dart';
+import 'package:car_rental_app/features/auth/login/presentation/screen/login_screen.dart';
 import 'package:car_rental_app/features/auth/new_password/presentation/cubit/new_password_cubit.dart';
-import 'package:car_rental_app/features/auth/new_password/presentation/page/new_password.dart';
+import 'package:car_rental_app/features/auth/new_password/presentation/screen/new_password.dart';
 import 'package:car_rental_app/features/auth/reset_password/presentation/cubit/reset_password_cubit.dart';
-import 'package:car_rental_app/features/auth/email_verification/page/email_verification_code.dart';
-import 'package:car_rental_app/features/auth/reset_password/presentation/page/reset_password_screen.dart';
+import 'package:car_rental_app/features/auth/email_verification/presentation/screen/email_verification_code.dart';
+import 'package:car_rental_app/features/auth/reset_password/presentation/screen/reset_password_screen.dart';
 import 'package:car_rental_app/features/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
-import 'package:car_rental_app/features/auth/sign_up/presentation/page/sign_up_screen.dart';
+import 'package:car_rental_app/features/auth/sign_up/presentation/screen/sign_up_screen.dart';
 import 'package:car_rental_app/features/auth/verification_code/presentation/cubit/verification_code_cubit.dart';
 import 'package:car_rental_app/features/auth/verification_code/presentation/page/verification_code_screen.dart';
 import 'package:car_rental_app/features/auth/verify_your_phone_number/presentation/page/verify_your_phone_number_screen.dart';
+import 'package:car_rental_app/features/home/presentation/cubit/home_cubit.dart';
+import 'package:car_rental_app/features/home/presentation/screen/home_screen.dart';
 import 'package:car_rental_app/features/onboarding/page/onboarding_screen.dart';
 import 'package:car_rental_app/features/splach/presentation/page/splach_screen.dart';
 import 'package:flutter/material.dart';
@@ -116,6 +118,13 @@ class AppRouting {
         );
       case Routes.splash:
         return MaterialPageRoute(builder: (_) => SplachScreen());
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => sl<HomeCubit>()..brandState(),
+            child: HomeScreen(),
+          ),
+        );
 
       default:
         return defaultPage();

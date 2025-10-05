@@ -1,4 +1,4 @@
-import 'package:car_rental_app/config/constants/country_code_to_emoji.dart';
+import 'package:car_rental_app/core/constants/country_code_to_emoji.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/assets_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
