@@ -1,6 +1,6 @@
 import 'package:car_rental_app/config/responsive/size_config.dart';
 import 'package:car_rental_app/core/routing/routes.dart';
-import 'package:car_rental_app/core/utils/app_colors.dart';
+import 'package:car_rental_app/core/utils/colors_manager.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/assets_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';

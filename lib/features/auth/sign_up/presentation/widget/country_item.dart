@@ -1,4 +1,4 @@
-import 'package:car_rental_app/config/constants/country_code_to_emoji.dart';
+import 'package:car_rental_app/core/constants/country_code_to_emoji.dart';
 import 'package:car_rental_app/features/auth/sign_up/domain/entity/sign_up_countries_entity.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:car_rental_app/config/constants/secure_storage.dart';
+import 'package:car_rental_app/core/constants/secure_storage.dart';
 import 'package:car_rental_app/core/error/api_error_handler.dart';
 import 'package:car_rental_app/core/error/api_resulte.dart';
 import 'package:car_rental_app/core/network/base_url.dart';

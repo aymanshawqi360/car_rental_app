@@ -1,4 +1,4 @@
-import 'package:car_rental_app/config/Shared/user_data_response.dart';
+import 'package:car_rental_app/core/Shared/user_data_response.dart';
 
 class SignUpResponse extends User {
   User? user;

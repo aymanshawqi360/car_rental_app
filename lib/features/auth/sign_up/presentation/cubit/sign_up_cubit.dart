@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:car_rental_app/config/constants/secure_storage.dart';
+import 'package:car_rental_app/core/constants/secure_storage.dart';
 import 'package:car_rental_app/core/error/api_error_model.dart';
 import 'package:car_rental_app/core/error/api_resulte.dart';
 import 'package:car_rental_app/features/auth/sign_up/data/models/sign_up_request_body.dart';
