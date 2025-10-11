@@ -17,6 +17,9 @@ class AssetsManager {
   static const String arrowDropDown = "${_svg}arrow_drop_down.svg";
   static const String filter = "${_svg}filter.svg";
   static const String searchCarApp = "${_svg}search_car_app.svg";
+  static const String sofa = "${_svg}sofa.svg";
+  static const String money = "${_svg}money.svg";
+  static const String location = "${_svg}location.svg";
   static const String notificationsCarApp = "${_svg}notifications_car_app.svg";
   //!lottie
   static const String loading = "${_lottie}Loading.json";

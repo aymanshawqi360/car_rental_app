@@ -1,6 +1,11 @@
-class BrandEntity {
-  int? id;
-  String? name;
-  String? image;
-  BrandEntity({this.id, this.name, this.image});
+import 'package:equatable/equatable.dart';
+
+class BrandEntity extends Equatable {
+  final int? id;
+  final String? name;
+  final String? image;
+  const BrandEntity({this.id, this.name, this.image});
+
+  @override
+  List<Object?> get props => [id, name, image];
 }

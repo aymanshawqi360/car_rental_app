@@ -14,4 +14,13 @@ class HomeApiService {
       rethrow;
     }
   }
+
+  Future<Response> getBestCars() async {
+    try {
+      final response = await dioFactory.get(HomeApiConstants.carsBest);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

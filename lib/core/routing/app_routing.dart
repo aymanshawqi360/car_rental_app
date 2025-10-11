@@ -122,6 +122,7 @@ class AppRouting {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => sl<HomeCubit>()..brandState(),
+
             child: HomeScreen(),
           ),
         );

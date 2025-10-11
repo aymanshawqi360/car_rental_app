@@ -31,7 +31,7 @@ class BrandItem extends StatelessWidget {
           child: Text(
             brandEntity.name.toString(),
             textAlign: TextAlign.center,
-            style: TextStyles.font12GrayRegular.copyWith(
+            style: TextStyles.font10GrayRegular.copyWith(
               fontWeight: FontWeight.w600,
             ),
             // softWrap: true,

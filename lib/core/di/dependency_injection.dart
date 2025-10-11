@@ -30,7 +30,8 @@ import 'package:car_rental_app/features/auth/verification_code/presentation/cubi
 import 'package:car_rental_app/features/home/data/api/home_api_service.dart';
 import 'package:car_rental_app/features/home/data/repo_impl/home_repo_implementaion.dart';
 import 'package:car_rental_app/features/home/domain/repo/home_repo.dart';
-import 'package:car_rental_app/features/home/domain/user_cases/brands_user_case.dart';
+import 'package:car_rental_app/features/home/domain/use_cases/best_car_use_cases.dart';
+import 'package:car_rental_app/features/home/domain/use_cases/brands_use_case.dart';
 import 'package:car_rental_app/features/home/presentation/cubit/home_cubit.dart';
 
 import 'package:dio/dio.dart';
@@ -99,8 +100,9 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<VerificationCodeUseCases>(
     () => VerificationCodeUseCases(verificationCodeRepo: sl()),
   );
-  sl.registerLazySingleton<BrandsUserCase>(
-    () => BrandsUserCase(homeRepo: sl()),
+  sl.registerLazySingleton<BrandsUseCase>(() => BrandsUseCase(homeRepo: sl()));
+  sl.registerLazySingleton<BestCarUseCases>(
+    () => BestCarUseCases(homeRepo: sl()),
   );
 
   //!Cubit
@@ -112,7 +114,9 @@ Future<void> setupGetIt() async {
     () => VerificationCodeCubit(verificationCodeUseCases: sl()),
   );
   sl.registerFactory(() => EmailVerificationCubit());
-  sl.registerFactory(() => HomeCubit(brandsUserCase: sl()));
+  sl.registerFactory(
+    () => HomeCubit(brandsUserCase: sl(), bestCarUseCases: sl()),
+  );
 
   //!Core
   sl.registerLazySingleton<UserCheck>(() => UserService());
