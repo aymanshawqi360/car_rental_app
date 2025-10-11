@@ -63,6 +63,7 @@ class AppStrings {
   static const String page = "page";
   static const String skip = "Skip";
   static const String brands = "Brands";
+  static const String available = "Available";
   static const String searchYourDreamCar = "Search your dream car.....";
   static bool isLoggedInUser = false;
 }

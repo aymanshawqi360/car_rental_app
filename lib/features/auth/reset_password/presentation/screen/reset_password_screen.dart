@@ -44,7 +44,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     fristText: AppStrings.resetYourPassword,
                     fristTextStyle: TextStyles.font30BlackSemiBold,
                     lastText: AppStrings.specialDescriptionInThePassword,
-                    lastTextStyle: TextStyles.font12GrayRegular,
+                    lastTextStyle: TextStyles.font10GrayRegular,
                   ),
                   verticalSpacing(context.screenHeight * 0.04),
                   ResetPasswordForm(),

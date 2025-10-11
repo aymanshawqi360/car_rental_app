@@ -38,7 +38,7 @@ class NewPassword extends StatelessWidget {
                     fristText: AppStrings.newPassword,
                     fristTextStyle: TextStyles.font30BlackSemiBold,
                     lastText: AppStrings.setNewPassword,
-                    lastTextStyle: TextStyles.font12GrayRegular,
+                    lastTextStyle: TextStyles.font10GrayRegular,
                   ),
                   verticalSpacing(context.screenHeight * 0.04),
                   NewPasswordForm(),

@@ -29,7 +29,7 @@ class AppDescriptionTitle extends StatelessWidget {
         Text(
           textAlign: TextAlign.center,
           lastText ?? AppStrings.specialDescriptionInThePassword,
-          style: lastTextStyle ?? TextStyles.font12GrayRegular,
+          style: lastTextStyle ?? TextStyles.font10GrayRegular,
         ),
       ],
     );

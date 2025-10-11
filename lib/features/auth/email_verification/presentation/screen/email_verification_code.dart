@@ -44,7 +44,7 @@ class EmailVerificationCode extends StatelessWidget {
                     fristText: AppStrings.emailVerification,
                     fristTextStyle: TextStyles.font30BlackSemiBold,
                     lastText: AppStrings.enterThefourCodeDigitVerificationCode,
-                    lastTextStyle: TextStyles.font12GrayRegular,
+                    lastTextStyle: TextStyles.font10GrayRegular,
                   ),
                   verticalSpacing(context.screenHeight * 0.04),
                   IntlPhoneFieldWidget(),

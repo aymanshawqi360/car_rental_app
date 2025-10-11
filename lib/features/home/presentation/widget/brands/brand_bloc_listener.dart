@@ -37,7 +37,7 @@ class BrandBlocListener extends StatelessWidget {
       itemCount: state.brands.length,
       itemBuilder: (context, index) => Padding(
         padding: EdgeInsetsDirectional.only(
-          start: index == 0 ? 0 : context.screenWidth / 22.5,
+          start: index == 0 ? 0 : context.screenWidth / 18.0,
         ),
         child: BrandItem(brandEntity: state.brands[index]),
       ),
@@ -54,7 +54,7 @@ class BrandBlocListener extends StatelessWidget {
         padding: EdgeInsetsDirectional.only(
           start: index == 0
               ? context.screenWidth / 40
-              : context.screenWidth / 10.8,
+              : context.screenWidth / 9.8,
         ),
         child: BrandLoadingShimmer(),
       ),
