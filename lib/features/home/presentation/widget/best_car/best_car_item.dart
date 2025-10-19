@@ -28,7 +28,7 @@ class BestCarItem extends StatelessWidget {
 
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: SizedBox(
-          width: 195.w,
+          width: 165.w,
           child: Column(
             children: [
               Stack(
