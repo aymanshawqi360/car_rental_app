@@ -18,7 +18,7 @@ class BestCarShimmerItem extends StatelessWidget {
         color: ColorsManager.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: SizedBox(
-          width: 210.w,
+          width: 165.w,
           child: Shimmer.fromColors(
             baseColor: Colors.grey.shade300,
             highlightColor: Colors.grey.shade100,
