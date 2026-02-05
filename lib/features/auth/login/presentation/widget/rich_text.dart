@@ -1,5 +1,7 @@
+import 'package:car_rental_app/core/routing/routes.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
-import 'package:car_rental_app/core/utils/styles.dart';
+import 'package:car_rental_app/core/utils/extension.dart';
+import 'package:car_rental_app/core/widgets/app_dont_have_an_account.dart';
 import 'package:flutter/material.dart';
 
 class RichTextWidget extends StatelessWidget {
@@ -7,21 +9,18 @@ class RichTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-      Center(child:
-      RichText(
-        text:TextSpan(
-            children: [
-              TextSpan(
-                  style: TextStyles.font16OnyxRegular,
-                  text: AppStrings.signUp
-              ) ,
-            ],
-            style: TextStyles.font16GrayRegular,
-            text: AppStrings.dontHaveAnAccountSignUp
+    return Center(
+      child: AppDontHaveAnAccount(
+        fristText: AppStrings.dontHaveAnAccountSignUp,
 
-        ),
+        lateText: AppStrings.signUp,
+        onTap: () {
+          context.pushNamedAndRemoveUntil(
+            Routes.signUp,
+            predicate: (_) => false,
+          );
+        },
       ),
-      );
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/hex_color.dart';
+import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
@@ -7,7 +8,7 @@ class AppButton extends StatelessWidget {
   final double? height;
   final Color? color;
   final BorderRadiusGeometry? borderRadius;
-  final Widget? title;
+  final Widget? widget;
   final TextStyle? style;
   final AlignmentGeometry? alignment;
   final TextAlign? textAlign;
@@ -20,7 +21,7 @@ class AppButton extends StatelessWidget {
     this.height,
     this.color,
     this.borderRadius,
-    this.title,
+    this.widget,
     this.style,
     this.alignment,
     this.textAlign,
@@ -42,11 +43,11 @@ class AppButton extends StatelessWidget {
           border: border ?? BoxBorder.all(color: Colors.transparent),
         ),
         child:
-            title ??
+            widget ??
             Text(
-              //   textAlign: textAlign ?? TextAlign.center,
+              textAlign: textAlign ?? TextAlign.center,
               "Get Started",
-              // style: style ?? TextStyles.font18WhiteBold,
+              style: style ?? TextStyles.font18WhiteBold,
             ),
       ),
     );

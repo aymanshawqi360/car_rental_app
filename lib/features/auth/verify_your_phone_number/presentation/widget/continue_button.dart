@@ -19,7 +19,10 @@ class ContinueButton extends StatelessWidget {
         );
       },
       height: SizeConfig.heightButton,
-      title: Text(AppStrings.continueButton, style: TextStyles.font18WhiteBold),
+      widget: Text(
+        AppStrings.continueButton,
+        style: TextStyles.font18WhiteBold,
+      ),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:car_rental_app/core/utils/app_colors.dart';
+import 'package:car_rental_app/core/utils/colors_manager.dart';
 import 'package:car_rental_app/core/utils/assets_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
@@ -18,7 +18,7 @@ class SocialMediaButton extends StatelessWidget {
           height: context.screenHeight / 19,
           color: ColorsManager.platinumGray,
           border: BoxBorder.all(color: ColorsManager.black, width: 0.1),
-          title: Row(
+          widget: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(AssetsManager.appleIcon),
@@ -33,7 +33,7 @@ class SocialMediaButton extends StatelessWidget {
           height: context.screenHeight / 19,
           color: ColorsManager.platinumGray,
           border: BoxBorder.all(color: ColorsManager.black, width: 0.1),
-          title: Row(
+          widget: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(AssetsManager.googleIcon),

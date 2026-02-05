@@ -1,7 +1,8 @@
-import 'package:car_rental_app/core/utils/app_colors.dart';
+import 'package:car_rental_app/core/utils/colors_manager.dart';
 import 'package:car_rental_app/core/utils/app_strings.dart';
 import 'package:car_rental_app/core/utils/font_weight_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyles {
   TextStyles._();
@@ -73,10 +74,10 @@ class TextStyles {
     fontSize: 14.0,
     fontWeight: FontWeightHelper.semiBold,
   );
-  static TextStyle font12GrayRegular = TextStyle(
+  static TextStyle font10GrayRegular = TextStyle(
     fontFamily: AppStrings.roboto,
     color: ColorsManager.gray,
-    fontSize: 12.4,
+    fontSize: 10.r,
     fontWeight: FontWeightHelper.regular,
     height: 1.5,
   );
@@ -91,5 +92,59 @@ class TextStyles {
     color: ColorsManager.black,
     fontSize: 28.6,
     fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font15BlackMedium = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 15.0,
+    fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font10WhiteBold = TextStyle(
+    //fontFamily: AppStrings.roboto,
+    color: ColorsManager.white,
+    fontSize: 10.0.r,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font13BlackSemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 13.0.r,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font12GraySemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.gray,
+    fontSize: 12.0.r,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font11BlackSemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 11.0.r,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font16BlackSemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.black,
+    fontSize: 16.0.sp,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font10GraySemiBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.gray,
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font10LightGrayRegular = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.gray,
+    fontSize: 10.0.sp,
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font14WhiteBold = TextStyle(
+    fontFamily: AppStrings.roboto,
+    color: ColorsManager.white,
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
   );
 }

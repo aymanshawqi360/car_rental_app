@@ -1,43 +1,116 @@
-import 'package:car_rental_app/core/utils/app_colors.dart';
+import 'package:car_rental_app/core/utils/colors_manager.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class AppTextFormField extends StatelessWidget {
   final String? hintText;
+
+  final String? labelText;
+
   final double? vertical;
+
   final double? horizontal;
+
   final BorderRadius? borderRadius;
+
+  final TextEditingController? controller;
+
+  final BorderSide? borderSide;
+
+  final bool? filled;
+
+  final Color? fillColor;
+
+  final String? Function(String?)? validator;
+
+  final void Function(String)? onChanged;
+
+  final void Function(String)? onFieldSubmitted;
+
+  final Widget? suffixIcon;
+
+  final bool? obscureText;
+
+  final Widget? prefixIcon;
+
+  final int? maxLength;
+
+  final TextInputType? keyboardType;
+
+  final String? errorText;
+
+  final OutlineInputBorder? error;
+
   const AppTextFormField({
     super.key,
     this.hintText,
+    this.labelText,
     this.vertical,
     this.horizontal,
     this.borderRadius,
+    this.controller,
+    this.borderSide,
+    this.filled,
+    this.fillColor,
+    this.validator,
+    this.onChanged,
+    this.onFieldSubmitted,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.maxLength,
+    this.keyboardType,
+    this.errorText,
+    this.error,
+    this.obscureText,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: maxLength,
+      keyboardType: keyboardType,
+      controller: controller,
       decoration: InputDecoration(
+        labelText: labelText,
         contentPadding: EdgeInsets.symmetric(
           horizontal: horizontal ?? context.screenWidth / 20,
           vertical: vertical ?? context.screenHeight / 60,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: borderRadius ?? BorderRadius.circular(8),
-          // gapPadding: 4.0,
-          borderSide: BorderSide(color: ColorsManager.lightGray),
+          borderSide: borderSide ?? BorderSide(color: ColorsManager.lightGray),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: borderRadius ?? BorderRadius.circular(8),
-          borderSide: BorderSide(color: ColorsManager.lightGray),
+          borderSide: borderSide ?? BorderSide(color: ColorsManager.lightGray),
         ),
+        errorBorder:
+            error ??
+            OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(8),
+            ),
+        focusedErrorBorder:
+            error ??
+            OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(8),
+            ),
         hintText: hintText ?? "Email/Phone Number",
         hintStyle: TextStyles.font14GrayRegular,
-        filled: true,
-        fillColor: ColorsManager.white,
+        filled: filled ?? true,
+        fillColor: fillColor ?? ColorsManager.white,
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+        errorText: errorText,
       ),
+      obscureText: obscureText ?? false,
+      cursorColor: ColorsManager.black,
+      cursorErrorColor: ColorsManager.black,
+      validator: validator,
+      onChanged: onChanged,
+      onFieldSubmitted: onFieldSubmitted,
     );
   }
 }

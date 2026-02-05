@@ -1,4 +1,4 @@
-import 'package:car_rental_app/config/constants/model_onboarding.dart';
+import 'package:car_rental_app/core/constants/model_onboarding.dart';
 import 'package:car_rental_app/core/utils/extension.dart';
 import 'package:car_rental_app/core/utils/hex_color.dart';
 import 'package:car_rental_app/core/utils/spacing.dart';
