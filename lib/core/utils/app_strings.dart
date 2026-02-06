@@ -66,4 +66,13 @@ class AppStrings {
   static const String available = "Available";
   static const String searchYourDreamCar = "Search your dream car.....";
   static bool isLoggedInUser = false;
+  static const String carDetailsTitle = "Tesla Model S";
+  static const String seeAll = "See All";
+  static const String review = "Review";
+  static const String carFeatures = "Car features";
+  static const String carDetails = "Car Details";
+  static const String defaultImage =
+      "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L2pvYjEwMzQtZWxlbWVudC0wNy00MDMucG5n.png";
+  static const String carDetailsDescription =
+      "A car with high specs that are rented ot an A car with high specs that are rented ot an";
 }

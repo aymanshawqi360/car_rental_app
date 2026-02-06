@@ -8,26 +8,49 @@ import 'package:flutter_svg/svg.dart';
 
 class AppAppbar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
-  const AppAppbar({super.key, this.actions});
+  final Widget? title;
+  final Widget? leading;
+  final bool centerTitle;
+  const AppAppbar({
+    super.key,
+    this.actions,
+    this.title,
+    this.leading,
+    this.centerTitle = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       surfaceTintColor: Theme.of(context).scaffoldBackgroundColor,
-      elevation: 0.3,
-      bottomOpacity: 50,
+      elevation: 0.0,
+      scrolledUnderElevation: 0,
 
       shadowColor: ColorsManager.onyx,
-      title: Row(
-        children: [
-          SvgPicture.asset(AssetsManager.qentCar, width: 33.w, height: 33.h),
-          horizontalSpacing(context.screenWidth * 0.02),
-          SvgPicture.asset(AssetsManager.qent, width: 18.w, height: 18.h),
-        ],
-      ),
+
+      toolbarHeight: 60.h,
+
+      leading: leading,
+      centerTitle: centerTitle,
+      title:
+          title ??
+          Row(
+            children: [
+              SvgPicture.asset(
+                AssetsManager.qentCar,
+                width: 33.w,
+                height: 33.h,
+              ),
+              horizontalSpacing(context.screenWidth * 0.02),
+              SvgPicture.asset(AssetsManager.qent, width: 18.w, height: 18.h),
+            ],
+          ),
+
+      // title: Text("Car Details"),
       actionsPadding: EdgeInsets.symmetric(
-        horizontal: context.screenWidth / 20,
+        horizontal: context.screenWidth / 32,
       ),
 
       actions: actions,

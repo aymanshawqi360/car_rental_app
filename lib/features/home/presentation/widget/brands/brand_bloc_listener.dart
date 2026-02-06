@@ -1,5 +1,5 @@
 import 'package:car_rental_app/core/utils/extension.dart';
-import 'package:car_rental_app/core/widgets/app_list_view_separated.dart';
+import 'package:car_rental_app/core/widgets/app_list_view.dart';
 import 'package:car_rental_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:car_rental_app/features/home/presentation/cubit/home_state.dart';
 import 'package:car_rental_app/features/home/presentation/widget/brands/brand_item.dart';
@@ -33,7 +33,7 @@ class BrandBlocListener extends StatelessWidget {
   }
 
   _buildSuccessState({required HomeBrandSuccess state}) {
-    return AppListViewSeparated(
+    return AppListView(
       itemCount: state.brands.length,
       itemBuilder: (context, index) => Padding(
         padding: EdgeInsetsDirectional.only(
@@ -49,7 +49,7 @@ class BrandBlocListener extends StatelessWidget {
   }
 
   _buildLoadingState() {
-    return AppListViewSeparated(
+    return AppListView(
       itemBuilder: (context, index) => Padding(
         padding: EdgeInsetsDirectional.only(
           start: index == 0

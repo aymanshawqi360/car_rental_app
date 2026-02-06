@@ -5,26 +5,47 @@ import 'package:flutter/material.dart';
 
 class AppTextFormField extends StatelessWidget {
   final String? hintText;
+
+  final String? labelText;
+
   final double? vertical;
+
   final double? horizontal;
+
   final BorderRadius? borderRadius;
+
   final TextEditingController? controller;
+
   final BorderSide? borderSide;
+
   final bool? filled;
+
   final Color? fillColor;
-  final Function(String?)? validator;
+
+  final String? Function(String?)? validator;
+
   final void Function(String)? onChanged;
+
   final void Function(String)? onFieldSubmitted;
+
   final Widget? suffixIcon;
+
   final bool? obscureText;
+
   final Widget? prefixIcon;
+
   final int? maxLength;
+
   final TextInputType? keyboardType;
+
   final String? errorText;
+
   final OutlineInputBorder? error;
+
   const AppTextFormField({
     super.key,
     this.hintText,
+    this.labelText,
     this.vertical,
     this.horizontal,
     this.borderRadius,
@@ -51,6 +72,7 @@ class AppTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       controller: controller,
       decoration: InputDecoration(
+        labelText: labelText,
         contentPadding: EdgeInsets.symmetric(
           horizontal: horizontal ?? context.screenWidth / 20,
           vertical: vertical ?? context.screenHeight / 60,
@@ -86,9 +108,7 @@ class AppTextFormField extends StatelessWidget {
       obscureText: obscureText ?? false,
       cursorColor: ColorsManager.black,
       cursorErrorColor: ColorsManager.black,
-      validator: (value) {
-        return validator!(value);
-      },
+      validator: validator,
       onChanged: onChanged,
       onFieldSubmitted: onFieldSubmitted,
     );

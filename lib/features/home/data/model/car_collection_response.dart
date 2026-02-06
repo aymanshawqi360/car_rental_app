@@ -240,14 +240,14 @@ class LocationModel {
 
 class ReviewModel {
   final int id;
-  final String username;
+  final String userName;
   final String review;
   final String userImage;
   final int rate;
 
   ReviewModel({
     required this.id,
-    required this.username,
+    required this.userName,
     required this.review,
     required this.userImage,
     required this.rate,
@@ -256,7 +256,7 @@ class ReviewModel {
   factory ReviewModel.fromJson(Map<String, dynamic> json) {
     return ReviewModel(
       id: json['id'],
-      username: json['username'],
+      userName: json['username'],
       review: json['review'],
       userImage: json['user_image'],
       rate: json['rate'],
@@ -264,7 +264,7 @@ class ReviewModel {
   }
   Map<String, dynamic> toJson(ReviewModel result) => {
     'id': result.id,
-    'username': result.username,
+    'username': result.userName,
     'review': result.review,
     'user_image': result.userImage,
     'rate': result.rate,
@@ -290,4 +290,28 @@ class LinkItem {
     'label': result.label,
     'active': result.active,
   };
+}
+
+class Country {
+  final int id;
+  final String country;
+  final String abbreviation;
+
+  Country({
+    required this.id,
+    required this.country,
+    required this.abbreviation,
+  });
+
+  factory Country.fromJson(Map<String, dynamic> json) {
+    return Country(
+      id: json['id'],
+      country: json['country'],
+      abbreviation: json['abbreviation'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'country': country, 'abbreviation': abbreviation};
+  }
 }

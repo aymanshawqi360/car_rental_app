@@ -22,7 +22,7 @@ class CarRentalApp extends StatelessWidget {
             appBarTheme: AppBarTheme(color: HexColor(hexColor: 'f8f8f8')),
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.homeScreen,
+          initialRoute: Routes.splash,
           //  (AppStrings.isLoggedInUser)
           // ? Routes.homeScreen
           // : Routes.onboarding,

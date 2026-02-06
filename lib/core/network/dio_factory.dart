@@ -32,7 +32,7 @@ class DioFactory extends ApiConsumer {
         request: true,
         error: true,
         requestBody: true,
-        requestHeader: true,
+        requestHeader: true,  
         responseBody: true,
         responseHeader: true,
       ),
