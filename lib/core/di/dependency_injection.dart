@@ -32,6 +32,8 @@ import 'package:car_rental_app/features/home/data/repo_impl/home_repo_implementa
 import 'package:car_rental_app/features/home/domain/repo/home_repo.dart';
 import 'package:car_rental_app/features/home/domain/use_cases/best_car_use_cases.dart';
 import 'package:car_rental_app/features/home/domain/use_cases/brands_use_case.dart';
+import 'package:car_rental_app/features/home/domain/use_cases/car_details_use_cases.dart';
+import 'package:car_rental_app/features/home/presentation/car_details_cubit/car_details_cubit.dart';
 import 'package:car_rental_app/features/home/presentation/cubit/home_cubit.dart';
 
 import 'package:dio/dio.dart';
@@ -105,6 +107,10 @@ Future<void> setupGetIt() async {
     () => BestCarUseCases(homeRepo: sl()),
   );
 
+  sl.registerLazySingleton<CarDetailsUseCases>(
+    () => CarDetailsUseCases(homeRepo: sl()),
+  );
+
   //!Cubit
   sl.registerFactory(() => SignUpCubit(singUpUseCases: sl()));
   sl.registerFactory(() => LoginCubit(loginUseCases: sl()));
@@ -117,6 +123,7 @@ Future<void> setupGetIt() async {
   sl.registerFactory(
     () => HomeCubit(brandsUserCase: sl(), bestCarUseCases: sl()),
   );
+  sl.registerFactory(() => CarDetailsCubit(carDetailsUseCases: sl()));
 
   //!Core
   sl.registerLazySingleton<UserCheck>(() => UserService());

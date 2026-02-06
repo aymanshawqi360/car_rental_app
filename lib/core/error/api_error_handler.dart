@@ -33,7 +33,7 @@ class ApiErrorHandler {
           );
 
         case DioExceptionType.badResponse:
-          return badResponseError(data: error.response?.data);
+          return _badResponseError(data: error.response?.data);
 
         case DioExceptionType.connectionError:
           return ApiErrorModel(
@@ -51,7 +51,7 @@ class ApiErrorHandler {
     }
   }
 
-  static ApiErrorModel badResponseError({required dynamic data}) {
+  static ApiErrorModel _badResponseError({required dynamic data}) {
     return ApiErrorModel(errorMessage: data['message'], errors: data['errors']);
   }
 }

@@ -6,7 +6,7 @@ class BestCarEntity extends Equatable {
   final String? firstImage;
   final String? location;
   final String? seatingCapacity;
-  final String? dailyRent;
+  final String? price;
   final int? averageRate;
   const BestCarEntity({
     this.name,
@@ -14,7 +14,7 @@ class BestCarEntity extends Equatable {
     this.firstImage,
     this.location,
     this.seatingCapacity,
-    this.dailyRent,
+    this.price,
     this.averageRate,
   });
 
@@ -25,7 +25,7 @@ class BestCarEntity extends Equatable {
     firstImage,
     location,
     seatingCapacity,
-    dailyRent,
+    price,
     averageRate,
   ];
 }

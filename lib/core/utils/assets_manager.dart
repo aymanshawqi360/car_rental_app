@@ -21,6 +21,10 @@ class AssetsManager {
   static const String money = "${_svg}money.svg";
   static const String location = "${_svg}location.svg";
   static const String notificationsCarApp = "${_svg}notifications_car_app.svg";
+  static const String phone = "${_svg}phone.svg";
+  static const String message = "${_svg}message.svg";
+  static const String verificationCheckmark =
+      "${_svg}verification_checkmark.svg";
   //!lottie
   static const String loading = "${_lottie}Loading.json";
 }

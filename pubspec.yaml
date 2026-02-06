@@ -15,9 +15,7 @@ dependencies:
     sdk: flutter
 
 
-  cupertino_icons: ^1.0.8
-
-  
+ 
   # An SVG rendering and widget library for Flutter, which allows painting
   flutter_svg: ^2.2.0
   # Package handles the pagination and search in DropDown 
@@ -49,7 +47,6 @@ dependencies:
   shimmer: ^3.0.0
   # cache network images. Can also be used with placeholder and error widgets.
   cached_network_image: ^3.4.1
-
 
 
 dev_dependencies:

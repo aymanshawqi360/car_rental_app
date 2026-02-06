@@ -1,4 +1,4 @@
-import 'package:car_rental_app/core/widgets/app_list_view_separated.dart';
+import 'package:car_rental_app/core/widgets/app_list_view.dart';
 import 'package:car_rental_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:car_rental_app/features/home/presentation/cubit/home_state.dart';
 import 'package:car_rental_app/features/home/presentation/widget/best_car/best_car_item.dart';
@@ -44,7 +44,7 @@ class _BestCarBlocBuilderState extends State<BestCarBlocBuilder> {
   }
 
   _buildLoadingState() {
-    return AppListViewSeparated(
+    return AppListView(
       itemBuilder: (context, index) {
         return BestCarShimmerItem(index: index);
       },
@@ -52,10 +52,12 @@ class _BestCarBlocBuilderState extends State<BestCarBlocBuilder> {
     );
   }
 
-  _buildFailureState() {}
+  _buildFailureState() {
+    return Text("Error");
+  }
 
   _buildSuccessState({required HomeBestCarSuccess state}) {
-    return AppListViewSeparated(
+    return AppListView(
       itemBuilder: (ocntext, index) {
         return BestCarItem(index: index, bestCarEntity: state.bestCars[index]);
       },

@@ -23,4 +23,24 @@ class HomeApiService {
       rethrow;
     }
   }
+
+  Future<Response> getCarDetails({required String carId}) async {
+    try {
+      final response = await dioFactory.get('${HomeApiConstants.oneCar}$carId');
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<Response> getReviews({required String carId}) async {
+    try {
+      final response = await dioFactory.get(
+        '${HomeApiConstants.seeAll}${carId + HomeApiConstants.reviews}',
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
