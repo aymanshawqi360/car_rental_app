@@ -65,7 +65,7 @@ class NewPassword extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: context.bodyHeight * 0.45,
+              height: context.bodyHeight * 0.41,
               child: NavigateButton(),
             ),
             NewPasswordBlocListener(),
