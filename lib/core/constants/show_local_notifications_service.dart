@@ -13,9 +13,9 @@ class ShowLocalNotificationService {
           iOS: DarwinInitializationSettings(),
         );
     await flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
+    //  initializationSettings,
       onDidReceiveBackgroundNotificationResponse: onTap,
-      onDidReceiveNotificationResponse: onTap,
+      onDidReceiveNotificationResponse: onTap, settings: initializationSettings,
     );
   }
 
@@ -32,6 +32,7 @@ class ShowLocalNotificationService {
       ),
       iOS: DarwinNotificationDetails(),
     );
-    flutterLocalNotificationsPlugin.show(0, message, code, notificationDetails);
+    flutterLocalNotificationsPlugin.show(id: 0, title: code, body: message, notificationDetails: notificationDetails);
+  //  show(0, message, code, notificationDetails, id: null);
   }
 }

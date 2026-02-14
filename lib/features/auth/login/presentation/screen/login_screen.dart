@@ -16,38 +16,47 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppAppbar(),
+      appBar:const AppAppbar(),
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: EdgeInsetsGeometry.only(
-          left: context.screenWidth * 0.03,
-          right: context.screenWidth * 0.03,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsetsGeometry.only(
+                left: context.screenWidth * 0.03,
+                right: context.screenWidth * 0.03,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
 
-          children: [
-            verticalSpacing(context.bodyHeight * 0.06),
-            LoginForm(),
-            SizedBox(
-              height: context.bodyHeight * 0.1,
-              child: RememberMeAndForgotPassword(),
-            ),
-            SizedBox(height: context.bodyHeight * 0.19, child: LoginButton()),
-            SizedBox(
-              height: context.bodyHeight * 0.07,
-              child: AppDividerAndOr(),
-            ),
+                children: [
+                  verticalSpacing(context.bodyHeight * 0.06),
+                  const LoginForm(),
+                  SizedBox(
+                    height: context.bodyHeight * 0.1,
+                    child: RememberMeAndForgotPassword(),
+                  ),
+                  SizedBox(
+                    height: context.bodyHeight * 0.19,
+                    child: LoginButton(),
+                  ),
+                  SizedBox(
+                    height: context.bodyHeight * 0.07,
+                    child: AppDividerAndOr(),
+                  ),
 
-            SizedBox(
-              height: context.bodyHeight * 0.2,
+                  SizedBox(
+                    height: context.bodyHeight * 0.2,
 
-              child: Column(children: [SocialMediaButton()]),
+                    child: Column(children: [const SocialMediaButton()]),
+                  ),
+                  const RichTextWidget(),
+                  const LoginBlocListener(),
+                ],
+              ),
             ),
-            RichTextWidget(),
-            LoginBlocListener(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

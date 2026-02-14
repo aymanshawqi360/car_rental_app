@@ -34,99 +34,86 @@ class VerificationCodeScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(
-              height: context.bodyHeight * 0.1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
 
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      context.pushNamedAndRemoveUntil(
-                        Routes.homeScreen,
-                        predicate: (_) => false,
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(
-                        right: context.screenWidth * 0.05,
-                      ),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    context.pushNamedAndRemoveUntil(
+                      Routes.homeScreen,
+                      predicate: (_) => false,
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(right: context.screenWidth * 0.05),
 
-                      child: Text(AppStrings.skip),
-                    ),
+                    child: Text(AppStrings.skip),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-
-            SizedBox(
-              height: context.bodyHeight * 0.9,
-              child: Column(
-                children: [
-                  BlocBuilder<VerificationCodeCubit, VerificationCodeState>(
-                    buildWhen: (previous, current) =>
-                        current is ConfirmVerifyCodePhone,
-                    builder: (context, state) {
-                      return AppDescriptionTitle(
-                        fristText: AppStrings.enterVerificationCode,
-                        lastText:
-                            AppStrings.weHaveSendACodeTo +
-                            ((state is ConfirmVerifyCodePhone)
-                                ? state.phone
-                                : ""),
-                      );
-                    },
-                  ),
-                  verticalSpacing(context.screenHeight / 20),
-                  VerificationCodeField(),
-                  verticalSpacing(context.screenHeight * 0.02),
-                  AppButton(
-                    height: SizeConfig.heightButton,
-                    widget:
-                        BlocBuilder<
-                          VerificationCodeCubit,
-                          VerificationCodeState
-                        >(
-                          builder: (context, state) {
-                            if (state is ConfirmVerifyCodeLoading) {
-                              return Lottie.asset(
-                                AssetsManager.loading,
-                                height: 36.5.h,
-                                width: 36.5.w,
-                                delegates: LottieDelegates(
-                                  values: [
-                                    ValueDelegate.color(const [
-                                      '**',
-                                    ], value: ColorsManager.white),
-                                  ],
-                                ),
-                              );
-                            } else {
-                              return Text(
-                                AppStrings.continueButton,
-                                style: TextStyles.font18WhiteBold,
-                              );
-                            }
-                          },
-                        ),
-                    onTap: () {
-                      context.read<VerificationCodeCubit>().confirmVerifyCode();
-                    },
-                  ),
-                  VerificationCodeBlocListener(),
-                  verticalSpacing(context.screenHeight / 20),
-                  AppDontHaveAnAccount(
-                    fristText: AppStrings.didntReceiveTheOtp,
-                    lateText: AppStrings.resend,
-                    onTap: () async {
-                      context
-                          .read<VerificationCodeCubit>()
-                          .checkIfPhoneNumber();
-                    },
-                  ),
-                ],
-              ),
+            verticalSpacing(30.h),
+            Column(
+              children: [
+                BlocBuilder<VerificationCodeCubit, VerificationCodeState>(
+                  buildWhen: (previous, current) =>
+                      current is ConfirmVerifyCodePhone,
+                  builder: (context, state) {
+                    return AppDescriptionTitle(
+                      fristText: AppStrings.enterVerificationCode,
+                      lastText:
+                          AppStrings.weHaveSendACodeTo +
+                          ((state is ConfirmVerifyCodePhone)
+                              ? state.phone
+                              : ""),
+                    );
+                  },
+                ),
+                verticalSpacing(context.screenHeight / 20),
+              const  VerificationCodeField(),
+                verticalSpacing(context.screenHeight * 0.02),
+                AppButton(
+                  height: SizeConfig.heightButton,
+                  widget:
+                      BlocBuilder<VerificationCodeCubit, VerificationCodeState>(
+                        builder: (context, state) {
+                          if (state is ConfirmVerifyCodeLoading) {
+                            return Lottie.asset(
+                              AssetsManager.loading,
+                              height: 36.5.h,
+                              width: 36.5.w,
+                              delegates: LottieDelegates(
+                                values: [
+                                  ValueDelegate.color(const [
+                                    '**',
+                                  ], value: ColorsManager.white),
+                                ],
+                              ),
+                            );
+                          } else {
+                            return Text(
+                              AppStrings.continueButton,
+                              style: TextStyles.font18WhiteBold,
+                            );
+                          }
+                        },
+                      ),
+                  onTap: () {
+                    context.read<VerificationCodeCubit>().confirmVerifyCode();
+                  },
+                ),
+           const     VerificationCodeBlocListener(),
+                verticalSpacing(context.screenHeight / 20),
+                AppDontHaveAnAccount(
+                  fristText: AppStrings.didntReceiveTheOtp,
+                  lateText: AppStrings.resend,
+                  onTap: () async {
+                    context.read<VerificationCodeCubit>().checkIfPhoneNumber();
+                  },
+                ),
+              ],
             ),
           ],
         ),
